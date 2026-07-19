@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Manifest — Manifest Your Day</title>
+    <meta name="description" content="Discover your personal Manifest Code and daily manifestation based on your birth date. Free, personal, changes every day.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="My Manifest — Manifest Your Day">
+    <meta property="og:description" content="Your personal manifestation changes every day. Manifest code, lucky color, love energy, and more.">
+    <meta property="og:url" content="" id="ogUrl">
+    <meta property="og:image" content="" id="ogImage">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="My Manifest">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="My Manifest — Manifest Your Day">
+    <meta name="twitter:description" content="Your personal manifestation changes every day. Get yours free.">
+    <meta name="twitter:image" content="" id="twitterImage">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a1a0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="My Manifest">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='192' height='192' viewBox='0 0 192 192'><rect width='192' height='192' fill='%230a1a0f'/><text x='96' y='72' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-weight='400' fill='%23d4af37'>My</text><text x='96' y='130' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-weight='400' fill='%23d4af37'>Manifest</text></svg>">
+
+    <!-- Inline OG Tag Generator (runs before page load for Facebook scraper) -->
+    <script>
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        var m = parseInt(params.get('m'));
+        var d = parseInt(params.get('d'));
+        if (m && d && m >= 1 && m <= 12 && d >= 1 && d <= 31) {
+            var code = ((m * 7 + d * 13) % 31) + 1;
+            document.title = "My Manifest — Code " + code;
+            var ogTitle = document.querySelector('meta[property="og:title"]');
+            var ogDesc = document.querySelector('meta[property="og:description"]');
+            var ogUrl = document.querySelector('meta[property="og:url"]');
+            var twitterTitle = document.querySelector('meta[name="twitter:title"]');
+            var twitterDesc = document.querySelector('meta[name="twitter:description"]');
+            if (ogTitle) ogTitle.setAttribute('content', "My Manifest — Manifest Code " + code);
+            if (ogDesc) ogDesc.setAttribute('content', "Your personal manifestation changes every day. Lucky color, love energy, and what to avoid — all from your birth date. Get your free reading.");
+            if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+            if (twitterTitle) twitterTitle.setAttribute('content', "My Manifest — Manifest Code " + code);
+            if (twitterDesc) twitterDesc.setAttribute('content', "Your personal manifestation changes every day. Get your free reading.");
+        }
+    })();
+    </script>
+
+    <style>
+        :root {
+            --bg-deep: #0a1a0f;
+            --bg-card: rgba(10, 26, 15, 0.85);
+            --gold: #d4af37;
+            --gold-light: #e8c955;
+            --text: #e8e5dc;
+            --text-muted: #a8a590;
+            --accent: #1a3a25;
+            --danger: #c97a7a;
+            --danger-bg: rgba(201, 122, 122, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 30% 10%, rgba(212, 175, 55, 0.06) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 85%, rgba(26, 58, 37, 0.4) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 50%, rgba(10, 26, 15, 0.9) 0%, #0a1a0f 100%);
+            background-attachment: fixed;
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0.5rem 1rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* AD SLOT 1 — Top Banner */
+        .ad-top-banner {
+            max-width: 480px;
+            width: 100%;
+            margin: 0 auto 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.6rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            font-family: 'Georgia', serif;
+        }
+
+        .container {
+            max-width: 480px;
+            width: 100%;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            padding: 1.8rem 1.5rem 1.5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+            opacity: 0.9;
+        }
+
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.2rem;
+            color: var(--text);
+            line-height: 1.2;
+        }
+        h1 span {
+            color: var(--gold);
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        .today-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 2rem;
+            padding: 0.25rem 1rem;
+            font-size: 0.7rem;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            opacity: 0.7;
+            margin-bottom: 0.4rem;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        select {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--text);
+            padding: 0.7rem 1rem;
+            border-radius: 0.8rem;
+            font-size: 0.9rem;
+            font-family: 'Georgia', serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%23d4af37' d='M5 7L1 3h8z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            padding-right: 2rem;
+            min-width: 95px;
+        }
+        select:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .btn {
+            font-family: 'Georgia', serif;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), #b8942e);
+            color: #0a1a0f;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+            font-weight: 700;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        }
+        .btn-primary:active {
+            transform: scale(0.96);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+        }
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.2rem 0;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .tab-row {
+            display: flex;
+            gap: 0.3rem;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            font-family: 'Georgia', serif;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 0.45rem 0.9rem;
+            border-radius: 1.5rem;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+        .tab-btn.active {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .tab-btn:hover {
+            border-color: var(--gold);
+            color: var(--text);
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        .future-input-group,
+        .past-input-group {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        .future-input-group input[type="date"],
+        .past-input-group input[type="date"] {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--text);
+            padding: 0.65rem 1rem;
+            border-radius: 0.8rem;
+            font-size: 0.85rem;
+            font-family: 'Georgia', serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .future-input-group input[type="date"]:hover,
+        .past-input-group input[type="date"]:hover {
+            border-color: var(--gold);
+        }
+        .future-input-group input[type="date"]::-webkit-calendar-picker-indicator,
+        .past-input-group input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.8) sepia(1) saturate(5) hue-rotate(10deg);
+            cursor: pointer;
+        }
+
+        .output {
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+            margin-top: 1rem;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .code-display {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .code-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+        .code-number {
+            font-family: 'Georgia', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--gold);
+            line-height: 1;
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+        }
+        .result-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px dashed rgba(212, 175, 55, 0.4);
+            border-radius: 1.5rem;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.65rem;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            margin-top: 0.3rem;
+        }
+
+        .reading-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 0.8rem 0;
+        }
+        .reading-card {
+            background: rgba(255, 255, 255, 0.025);
+            border-radius: 0.9rem;
+            padding: 0.7rem 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            transition: all 0.3s;
+        }
+        .reading-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .card-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+            opacity: 0.8;
+        }
+        .card-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .card-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            opacity: 0.7;
+            margin-bottom: 0.1rem;
+        }
+        .card-value {
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--text);
+            word-wrap: break-word;
+        }
+        .card-value.large {
+            font-size: 1.1rem;
+            color: var(--gold-light);
+        }
+
+        /* Avoid Card — Collapsible */
+        .card-avoid {
+            border-left: 3px solid var(--danger);
+            background: var(--danger-bg);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .card-avoid .card-label {
+            color: var(--danger);
+        }
+        .card-avoid .avoid-tease {
+            color: var(--text);
+            opacity: 0.8;
+            font-style: italic;
+            position: relative;
+        }
+        .card-avoid .avoid-tease::after {
+            content: '...';
+            color: var(--danger);
+            font-weight: bold;
+        }
+        .card-avoid .avoid-full {
+            display: none;
+        }
+        .card-avoid.expanded .avoid-tease {
+            display: none;
+        }
+        .card-avoid.expanded .avoid-full {
+            display: inline;
+        }
+        .card-avoid .tap-prompt {
+            font-size: 0.6rem;
+            color: var(--danger);
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 0.3rem;
+            opacity: 0.8;
+        }
+        .card-avoid.expanded .tap-prompt {
+            display: none;
+        }
+        .card-avoid .tap-close {
+            display: none;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 0.3rem;
+            opacity: 0.6;
+        }
+        .card-avoid.expanded .tap-close {
+            display: block;
+        }
+        .avoid-ad-slots {
+            display: none;
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .card-avoid:not(.expanded) .avoid-ad-slots {
+            display: none;
+        }
+        .card-avoid.expanded .avoid-ad-slots {
+            display: flex;
+        }
+        .avoid-ad-slot {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.55rem;
+            letter-spacing: 1px;
+        }
+
+        /* Mid-results ad */
+        .mid-ad-slot {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.7rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            margin: 0.3rem 0;
+        }
+
+        .share-section {
+            margin-top: 0.8rem;
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-share {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            padding: 0.55rem 1rem;
+            border-radius: 2rem;
+            font-weight: 400;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+        .btn-share:hover {
+            background: rgba(212, 175, 55, 0.12);
+        }
+        .btn-share.primary-share {
+            background: var(--gold);
+            color: #0a1a0f;
+            border: none;
+            font-weight: 700;
+        }
+        .btn-share.primary-share:hover {
+            background: var(--gold-light);
+        }
+
+        /* AD SLOT 2 — Below card */
+        .ad-below-card {
+            max-width: 480px;
+            width: 100%;
+            margin: 0.5rem auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.7rem;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            font-family: 'Georgia', serif;
+        }
+
+        .past-reflection {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: left;
+            line-height: 1.6;
+            font-style: italic;
+            margin: 0.8rem 0;
+        }
+        .past-reflection .reflection-date {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+            font-style: normal;
+        }
+        .past-reflection .reflection-lesson {
+            margin-top: 0.8rem;
+            font-style: normal;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+        }
+
+        .past-ad-slot {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            margin: 0.5rem 0;
+        }
+
+        .bottom-actions {
+            max-width: 480px;
+            width: 100%;
+            margin: 0.5rem auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        .btn-install {
+            font-family: 'Georgia', serif;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-muted);
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            display: none;
+        }
+        .btn-install.visible {
+            display: inline-block;
+        }
+        .btn-install:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* AD SLOT 8 — Bottom of page */
+        .ad-bottom {
+            max-width: 480px;
+            width: 100%;
+            margin: 0.5rem auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.7rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            font-family: 'Georgia', serif;
+        }
+
+        .footer-note {
+            margin-top: 0.3rem;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            letter-spacing: 0.5px;
+            opacity: 0.5;
+        }
+        .footer-note a {
+            color: var(--gold);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a3a25;
+            color: var(--gold-light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 400;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .toast.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 1.3rem 0.9rem 1rem;
+                border-radius: 1.2rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .code-number {
+                font-size: 3.5rem;
+            }
+            .input-group {
+                gap: 0.3rem;
+            }
+            select {
+                padding: 0.6rem 0.5rem;
+                font-size: 0.8rem;
+                min-width: 80px;
+            }
+            .btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.75rem;
+            }
+            .tab-btn {
+                padding: 0.35rem 0.6rem;
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AD SLOT 1 — Top Banner -->
+    <div class="ad-top-banner" id="adSlot1">— Ad Slot 1 — Top Banner</div>
+
+    <div class="container">
+        <div class="logo">My Manifest</div>
+        <h1>Manifest <span>Your Day</span></h1>
+        <p class="subtitle">One birth date. A new manifestation daily.</p>
+
+        <div class="today-badge">📅 <span id="todayDate"></span></div>
+
+        <!-- Tabs -->
+        <div class="tab-row">
+            <button class="tab-btn active" data-tab="today">✦ Today</button>
+            <button class="tab-btn" data-tab="past">📅 Past</button>
+            <button class="tab-btn" data-tab="future">🔮 Future</button>
+        </div>
+
+        <!-- TODAY TAB -->
+        <div class="tab-content active" id="tab-today">
+            <div class="section-label">Enter Your Birth Date</div>
+            <div class="input-group">
+                <select id="monthSelect" aria-label="Birth month">
+                    <option value="">Month</option>
+                </select>
+                <select id="daySelect" aria-label="Birth day">
+                    <option value="">Day</option>
+                </select>
+                <button class="btn btn-primary" id="revealBtn">Manifest ✦</button>
+            </div>
+            <div class="output" id="outputToday"></div>
+        </div>
+
+        <!-- PAST TAB -->
+        <div class="tab-content" id="tab-past">
+            <div class="section-label">Reflect on a Past Day</div>
+            <p style="font-size:0.7rem;color:var(--text-muted);margin-bottom:0.8rem;">Enter your birth date, then pick a past date to reflect on.</p>
+            <div class="input-group">
+                <select id="pastMonthSelect" aria-label="Birth month for past">
+                    <option value="">Month</option>
+                </select>
+                <select id="pastDaySelect" aria-label="Birth day for past">
+                    <option value="">Day</option>
+                </select>
+            </div>
+            <div class="past-input-group">
+                <input type="date" id="pastDateInput" aria-label="Past date picker">
+                <button class="btn btn-outline" id="pastBtn">Reflect ✦</button>
+            </div>
+            <div class="output" id="outputPast"></div>
+        </div>
+
+        <!-- FUTURE TAB -->
+        <div class="tab-content" id="tab-future">
+            <div class="section-label">Preview a Future Day</div>
+            <p style="font-size:0.7rem;color:var(--text-muted);margin-bottom:0.8rem;">Enter your birth date, then pick a future date to preview. Result is locked and won't change on revisit.</p>
+            <div class="input-group">
+                <select id="futureMonthSelect" aria-label="Birth month for future">
+                    <option value="">Month</option>
+                </select>
+                <select id="futureDaySelect" aria-label="Birth day for future">
+                    <option value="">Day</option>
+                </select>
+            </div>
+            <div class="future-input-group">
+                <input type="date" id="futureDateInput" aria-label="Future date picker">
+                <button class="btn btn-outline" id="futureBtn">Preview ✦</button>
+            </div>
+            <div class="output" id="outputFuture"></div>
+        </div>
+    </div>
+
+    <!-- AD SLOT 2 — Below Card -->
+    <div class="ad-below-card" id="adSlot2">— Ad Slot 2 — Below Card</div>
+
+    <!-- Bottom Actions -->
+    <div class="bottom-actions">
+        <button class="btn-install" id="installBtn">📲 Install App</button>
+    </div>
+
+    <!-- AD SLOT 8 — Bottom -->
+    <div class="ad-bottom" id="adSlot8">— Ad Slot 8 — Bottom</div>
+
+    <p class="footer-note">
+        ✦ Manifestation changes daily. Your code is forever. <a id="resetLink">Start fresh</a>
+    </p>
+
+    <div class="toast" id="toast">📋 Link copied! Share it with friends.</div>
+
+    <script>
+        (function() {
+            // ============ FORTUNE POOLS ============
+            const fortunes = [
+                "A golden opportunity whispers your name today — listen closely.",
+                "Unexpected abundance flows from a direction you least expect.",
+                "Your generosity plants seeds for a future harvest.",
+                "A calculated risk may open a treasure chest. Trust your instincts.",
+                "Financial wisdom you've ignored will now shine brightly.",
+                "Someone from your past holds the key to a prosperous idea.",
+                "The number 8 appears wherever money moves — watch for it.",
+                "Today, patience is your greatest investment. Let things mature.",
+                "A small habit change today compounds into future riches.",
+                "Your creativity is the real gold mine. Mine it.",
+                "An obstacle is actually a hidden stepping stone to abundance.",
+                "Luck dances with those who are prepared. Get ready.",
+                "Money follows meaning. Align your work with your values.",
+                "A conversation over coffee could lead to your next big break.",
+                "The wealth you seek is already within your circle — look around.",
+                "Let go of a scarcity thought; it's blocking your flow.",
+                "Today's fortune lies in collaboration, not competition.",
+                "You are a magnet for resources when you radiate gratitude.",
+                "A forgotten skill may become a lucrative side path.",
+                "The universe rewards bold, kind action. Take one today.",
+                "Your morning intuition was correct — trust it this afternoon.",
+                "A small sum saved today is a giant leap for your future.",
+                "Someone will offer you a gift disguised as a problem.",
+                "Abundance is a frequency; tune yourself to it with joy.",
+                "Your home environment holds a clue to financial upgrade.",
+                "A quiet idea you've been nursing is ready to roar.",
+                "Look for the 'hidden plus' in a difficult situation.",
+                "The word 'no' might just redirect you to a bigger 'yes'.",
+                "Wealth loves speed. Act on that good impulse immediately.",
+                "Your network is your net worth — nurture a connection today.",
+                "The color gold will appear as a sign of confirmation.",
+                "A childhood dream contains the blueprint for your prosperity.",
+                "Financial freedom begins with a single clear decision.",
+                "Stop chasing; attract. The energy shift changes everything.",
+                "A stranger's offhand comment may light a money-making spark.",
+                "Today, the brave are rewarded. Take the first step.",
+                "Your talents are a currency the world is waiting to buy.",
+                "Let joy, not fear, guide today's money moves.",
+                "A delayed payment will arrive with an unexpected bonus.",
+                "Revisit an old project — it's ripe for profit now.",
+                "Your smile opens doors that money alone cannot.",
+                "The advice you give a friend today is also meant for you.",
+                "A 'lucky mistake' reveals a new income stream.",
+                "Discipline today paints tomorrow's canvas of plenty.",
+                "Money flows where attention goes. Focus on abundance.",
+                "An item you own is worth more than you think.",
+                "The answer to a money question lies in rest, not grind.",
+                "Your empathy is a wealth-building superpower. Use it.",
+                "A spontaneous 'yes' could lead to a profitable adventure.",
+                "The harvest is proportional to the seeds of kindness you sow.",
+                "Break a limiting money belief today — freedom awaits.",
+                "A cycle of debt or worry ends now. New energy enters.",
+                "Celebrate a small win — it magnetizes bigger ones.",
+                "A digital connection may become a real-world goldmine.",
+                "Your intuition about a purchase or investment is spot on.",
+                "Generosity is the secret key that unlocks receiving.",
+                "Today, the phrase 'I have enough' is your prosperity spell.",
+                "An ancient part of you knows how to thrive. Listen.",
+                "Your manifest code is activating now. Trust the process.",
+                "The day's energy multiplies whatever you appreciate. Choose wisely.",
+                "A door closes so a bigger one can open. Trust the timing.",
+                "Someone is about to recognize your value. Stay visible.",
+                "Your unique perspective is a commodity. Don't undervalue it.",
+                "A surprising message brings a financial smile today.",
+                "The risk you're afraid to take holds your biggest reward.",
+                "Nature holds a clue to your next income idea. Go outside.",
+                "Your past self made a smart choice that pays off now.",
+                "Today is for planting, not harvesting. Be patient with growth.",
+                "A 'coincidence' today is actually a well-deserved blessing.",
+                "Your calm demeanor in chaos is a wealth attractor.",
+                "Speak your financial goals out loud today — power in voice.",
+                "A mentor figure may appear in an unexpected form.",
+                "The thing you've been putting off contains hidden gold.",
+                "Your kindness to a stranger returns multiplied today.",
+                "A forgotten subscription or fee gets resolved in your favor.",
+                "Your hands create value. Make something tangible today.",
+                "The number you keep seeing is a confirmation. Notice it.",
+                "Wealth isn't just money — today's richness comes in experience.",
+                "A 'mistake' from last week turns into today's lesson and profit.",
+                "Your laughter attracts more abundance than worry ever could.",
+                "A small declutter makes space for new financial energy.",
+                "The person you help today becomes your ally tomorrow.",
+                "Your dreams last night contained a money clue. Recall them.",
+                "A skill you learned for fun could now be your income.",
+                "Today's challenge is a disguised opportunity in a wig.",
+                "Say yes to something that scares you a little — financially.",
+                "The phrase 'I deserve abundance' rewires your reality today.",
+                "A piece of advice from a child holds unexpected wisdom.",
+                "Your morning mood sets your money magnet. Start grateful.",
+                "A break in routine reveals a fresh perspective on earning.",
+                "The universe is conspiring to fill a need you expressed.",
+                "Your honesty in a money matter today builds long-term trust.",
+                "An old book or note contains a timely financial reminder.",
+                "The pause you take before reacting is worth real money.",
+                "A community you're part of holds your next client or break.",
+                "Your wealth code vibrates strongest when you help others win.",
+                "A forgotten talent resurfaces with profit potential today.",
+                "The sunset brings clarity to a financial decision. Wait for it.",
+                "Your ability to listen is a high-value currency. Use it.",
+                "A tiny investment in yourself yields disproportionate returns.",
+                "The person you envy has lessons, not threats, for your wealth.",
+                "Today's 'no' protects you from tomorrow's regret. Trust it.",
+                "A smell, song, or place triggers a brilliant money idea.",
+                "Your legacy wealth starts with one intentional action today.",
+                "The path that feels easiest actually holds the most prosperity.",
+                "A debt you owe (financial or energetic) gets cleared today.",
+                "Your unique story is your brand. Monetize your journey.",
+                "The sunrise tomorrow rewards the wise choice you make today.",
+                "A playful approach to money attracts more than a stressed one.",
+                "Your ability to adapt is your richest asset. Flex it today.",
+                "A compliment you receive points to a monetizable strength.",
+                "The courage to start before you're ready unlocks the vault.",
+                "Your inner voice about that deal? Listen. It knows.",
+                "A 'chance' encounter today is a scheduled blessing. Be present.",
+                "The wealth you admire in others is a mirror of your potential.",
+                "Today, slow and steady genuinely wins the prosperity race.",
+                "A piece of paperwork you've avoided holds a pleasant surprise.",
+                "Your generosity circle expands today. Watch who enters.",
+                "The space between thoughts holds your next million-dollar idea.",
+                "A difficult goodbye makes room for a lucrative hello.",
+                "Your hands-on skill is someone's desperate need. Connect them.",
+                "The laugh you share today opens a financial door tomorrow.",
+                "A number sequence you see repeatedly is a cosmic thumbs-up.",
+                "Your peace of mind is the foundation of all future wealth.",
+                "The thing you think is 'silly' could be your signature offer.",
+                "A delayed plan was actually divine protection. Celebrate that.",
+                "Your willingness to learn today determines your earning tomorrow.",
+                "The energy you bring to a room is a silent income stream.",
+                "A small act of financial discipline today echoes for years.",
+                "Your gut feeling about that offer? It's more accurate than logic.",
+                "The bridge between your current and dream life is one bold ask.",
+                "A friendship deepens today in a way that later brings profit.",
+                "Your ability to see beauty is a wealth magnet. Notice it now.",
+                "The 'lost' item you find today carries a message of return.",
+                "A number from 1 to 31 becomes significant. Pay attention.",
+                "Your shadow self holds the key to your boldest money move.",
+                "The conversation you avoid is the one that sets you free.",
+                "A financial pattern from childhood ends today. New cycle begins.",
+                "Your unique rhythm with time is a productivity goldmine.",
+                "The gratitude you express today directly boosts your abundance.",
+                "A 'random' online post holds the exact answer you need.",
+                "Your ability to rest deeply is a wealth strategy. Use it.",
+                "The color you're drawn to today is a prosperity signal.",
+                "A simple 'thank you' you send unlocks an unexpected door.",
+                "Your sensitivity is not weakness — it's your intuitive money edge.",
+                "The challenge you face today builds a muscle that earns forever.",
+                "A stranger's story today contains the plot twist you need.",
+                "Your personal style attracts opportunity. Dress like you mean it.",
+                "The delay you're frustrated by is perfect timing in disguise.",
+                "A memory of childhood abundance re-activates your wealth code.",
+                "Your voice carries a frequency of prosperity. Speak affirmations.",
+                "The 'coincidence' of meeting someone today is a scheduled miracle.",
+                "A financial fear you voice today loses its power over you.",
+                "Your unique daily routine contains a hidden monetizable pattern.",
+                "The book you feel pulled to read holds a wealth key.",
+                "A playful bet or friendly challenge today sparks a profitable idea.",
+                "Your forgiveness of a past money mistake unlocks new flow.",
+                "The ordinary object in your room has extraordinary value. See it.",
+                "A 'waste of time' activity today is actually productive incubation.",
+                "Your excitement about a topic is a compass to your fortune."
+            ];
+
+            const luckyColors = [
+                "Emerald Green", "Burnished Gold", "Deep Crimson", "Ocean Blue", "Amethyst",
+                "Burnt Orange", "Silver Mist", "Ivory Cream", "Onyx Black", "Rose Blush",
+                "Teal Depths", "Copper Bronze", "Lavender Haze", "Ruby Red", "Sapphire",
+                "Jade Stone", "Topaz Yellow", "Coral Reef", "Charcoal", "Champagne",
+                "Turquoise", "Magenta", "Soft Peach", "Mint Green", "Burgundy Wine",
+                "Aquamarine", "Amber Glow", "Lilac", "Olive Branch", "Cream"
+            ];
+
+            const luckyNumbers = [
+                "03", "07", "11", "14", "18", "21", "25", "29", "32", "36",
+                "41", "44", "48", "52", "55", "59", "63", "66", "70", "74",
+                "77", "81", "85", "88", "92", "96", "99", "02", "06", "10",
+                "13", "17", "20", "24", "28", "31", "35", "39", "42", "46",
+                "50", "53", "57", "61", "64", "68", "72", "75", "79", "83",
+                "87", "90", "94", "98", "01", "05", "09", "12", "16", "19",
+                "23", "27", "30", "34", "38", "43", "47", "51", "54", "58",
+                "62", "65", "69", "73", "76", "80", "84", "89", "93", "97",
+                "04", "08", "15", "22", "26", "33", "37", "40", "45", "49"
+            ];
+
+            const powerWords = [
+                "BOUNDARIES", "FOCUS", "GRATITUDE", "ACTION", "PATIENCE",
+                "COURAGE", "FLOW", "DISCIPLINE", "TRUST", "RELEASE",
+                "RISE", "ALIGN", "SERVE", "CREATE", "RECEIVE",
+                "INVEST", "SIMPLIFY", "CONNECT", "SPEAK", "REST",
+                "LEAP", "NOURISH", "SHINE", "BUILD", "FORGIVE",
+                "OBSERVE", "DECLUTTER", "CELEBRATE", "LEARN", "GIVE",
+                "EXPAND", "ROOT", "ADAPT", "PRIORITIZE", "ASK",
+                "LISTEN", "MOVE", "BREATHE", "IMAGINE", "COMMIT",
+                "HONOR", "DETACH", "EMBODY", "RADIATE", "CHOOSE",
+                "INTEND", "SURRENDER", "MAGNETIZE", "ANCHOR", "THRIVE"
+            ];
+
+            const moneyAdvice = [
+                "Check that subscription you forgot about — you might be leaking money.",
+                "Today is perfect to review your budget with fresh eyes.",
+                "An old skill of yours is worth money online. Research it.",
+                "Cook at home today. The savings are a form of self-respect.",
+                "Negotiate one bill today. A simple call can save hundreds yearly.",
+                "Sell one item you haven't used in 6 months. Declutter = cash.",
+                "Invest in knowledge before gadgets. Books pay dividends.",
+                "Automate your savings. What you don't see, you don't spend.",
+                "Track every expense today. Awareness is the first step to wealth.",
+                "Unfollow accounts that make you spend impulsively. Peace is free.",
+                "A side hustle idea you've been sitting on? Research it today.",
+                "Pay yourself first — even a small amount saved is a victory.",
+                "Check if your bank has hidden fees. Switch if needed.",
+                "Learn one new financial term today. Vocabulary builds wealth.",
+                "Your network knows opportunities you don't. Ask around gently.",
+                "Repair something instead of replacing it. Old-school wealth wisdom.",
+                "Barter or trade a service today. Money isn't the only currency.",
+                "Write down every expense today. The mirror doesn't lie.",
+                "Set a 24-hour rule for any non-essential purchase. Impulse fades.",
+                "Your time is worth more than that discount. Calculate your hourly rate.",
+                "Revisit an old investment or savings goal. Adjust and recommit.",
+                "A free resource online can replace something you're paying for.",
+                "Teach someone a skill today. Teaching is a wealth amplifier.",
+                "Your health is your wealth portfolio. Schedule that checkup.",
+                "Diversify your income streams. Even a small extra stream helps.",
+                "Review your subscriptions. Cancel at least one today.",
+                "A gratitude list shifts you from scarcity to abundance. Try it.",
+                "Bulk buying saves money only if you actually use it. Be honest.",
+                "Your creative hobby can be monetized. Explore platforms for it.",
+                "Energy vampires drain your wallet. Protect your peace and purse.",
+                "Compare prices before buying. Five minutes of research = real savings.",
+                "A 'no' to something today is a 'yes' to future financial freedom.",
+                "Your workspace affects your money mindset. Tidy it up.",
+                "Learn from someone who has what you want. Their path is a map.",
+                "Cash feels more real than cards. Use cash today.",
+                "A money mantra repeated daily rewires your beliefs. Start today.",
+                "Check your credit score or financial standing. Knowledge is power.",
+                "Support a small business today. Good karma circulates back.",
+                "Quality over quantity. Buy one good thing, not three cheap ones.",
+                "Your future self will thank you for the sacrifice you make today.",
+                "A digital detox saves you from ads that make you spend.",
+                "Plan your meals for the week. Impulse eating = impulse spending.",
+                "A library card is a wealth tool. Free knowledge, zero cost.",
+                "Upcycling something old into new is creative and profitable.",
+                "Your unique knowledge is a course waiting to be made. Outline it.",
+                "Ask for a raise or adjust your rates. Closed mouths don't get fed.",
+                "Separate wants from needs on paper today. The clarity saves money.",
+                "Emergency funds are attractive. Start one today, even with pocket change.",
+                "Your environment shapes your spending. Redesign one corner for calm.",
+                "A money date with yourself weekly transforms your finances. Start today.",
+                "Check if you're paying for convenience you could do yourself. Swap one.",
+                "Your phone probably has apps you pay for and never use. Delete them.",
+                "Invest in relationships, not things. Connections compound into opportunities.",
+                "A 'treat yourself' budget line prevents splurge guilt. Plan for joy.",
+                "Your morning routine sets your financial energy. Start with abundance affirmations.",
+                "Declutter your wallet or purse. Chaos there reflects chaos in finances.",
+                "A free webinar or podcast could spark your next income idea. Listen today.",
+                "Round up your spare change digitally or physically. Micro-savings add up.",
+                "Your sleep quality affects your spending decisions. Prioritize rest tonight.",
+                "A handwritten financial goal is more powerful than a mental one. Write it.",
+                "Check if loyalty points or cashback are sitting unused. Claim them.",
+                "Your intuition about that investment? It's data, not just a feeling. Honor it.",
+                "A small recurring donation shifts your wealth identity from lack to giver.",
+                "Your clutter holds clues to emotional spending patterns. Notice them gently.",
+                "Learn to say 'I can't afford it right now' without shame. Boundaries build wealth.",
+                "A walk in nature costs nothing and often brings clarity on money decisions.",
+                "Your network's net worth influences yours. Connect with growth-minded people.",
+                "A 'no spend day' once a week rewires your consumption habits. Try it.",
+                "Check expiration dates on subscriptions, warranties, and opportunities.",
+                "Your talents are assets. List them and brainstorm how each could earn.",
+                "Financial literacy is self-care. Read one article on money today.",
+                "A minimalist mindset attracts wealth by reducing waste. Less is truly more.",
+                "Your story of overcoming a money struggle could inspire and earn. Share it.",
+                "Review your insurance policies. Being underinsured is a wealth risk.",
+                "A vision board with financial goals makes them tangible. Create one digitally.",
+                "Your commute time could be learning time. Podcasts are free education.",
+                "A 'money mantra' like 'I am a wealth magnet' rewires your subconscious.",
+                "Check for unclaimed money or refunds owed to you.",
+                "Your community has resources you don't know about. Ask in local groups.",
+                "A yearly subscription is often cheaper than monthly. Do the math on one today.",
+                "Invest in tools that make you more productive. ROI on efficiency is real.",
+                "Your negotiation skills improve with practice. Start with something small today.",
+                "A 'financial fast' for a week reveals your true needs versus wants.",
+                "Review your tax situation or ask a pro. Smart tax planning is wealth creation.",
+                "Your personal brand is a wealth asset. Polish your online presence today.",
+                "A money book summary on YouTube gives you the key lessons for free.",
+                "Schedule a 'money check-in' with your partner or yourself weekly.",
+                "Your environment influences your wealth. Surround yourself with abundance symbols.",
+                "A skill swap with a friend saves both of you money. Barter is back.",
+                "Your physical health impacts your earning potential. Move your body today.",
+                "Check interest rates on your debts. Consolidate or refinance if it saves money.",
+                "A 'savings challenge' with friends makes finance fun and accountable. Start one.",
+                "Your unique DNA of experiences is a consulting niche. Identify it.",
+                "Review your financial goals. Are they still yours, or someone else's?",
+                "A 'money autobiography' reveals your inherited beliefs about wealth. Write one page.",
+                "Your future self is watching today's choices. Make them proud.",
+                "Automate bill payments to avoid late fees. Peace of mind is profitable.",
+                "A 'prosperity playlist' of songs about abundance shifts your mood and money.",
+                "Your home has hidden value — rent a room, a parking space, or storage.",
+                "Check your digital subscriptions across all devices. The leaks add up.",
+                "A 'gratitude letter' to money itself changes your relationship with it. Try it.",
+                "Your morning coffee habit might be a yearly vacation fund. Do the math gently."
+            ];
+
+            const loveEnergies = [
+                "Your warmth attracts the right kind of attention today. Stay open.",
+                "A small gesture of kindness sparks something deeper. Don't hold back.",
+                "Someone is noticing your energy from afar. Let your light shine.",
+                "Love arrives in unexpected forms today — a message, a glance, a memory.",
+                "Your heart knows what it wants. Trust its quiet whisper today.",
+                "A meaningful connection deepens when you speak your truth.",
+                "Self-love radiates outward and draws others near. Start within.",
+                "A past love taught you something valuable. That wisdom serves you now.",
+                "Romantic energy surrounds you. Be present enough to notice it.",
+                "The right person sees your quirks as treasures. Don't hide them.",
+                "Your vulnerability is a strength, not a weakness. Share it.",
+                "Love is not a race. Let things unfold at their own perfect pace.",
+                "A friendship may be blossoming into something more. Notice the signs.",
+                "Your kindness today plants seeds for a beautiful romantic harvest.",
+                "Emotional honesty creates the deepest intimacy. Speak from the heart.",
+                "You are worthy of a love that feels like home. Don't settle.",
+                "A surprise encounter stirs romantic possibilities. Stay curious.",
+                "Healing old wounds makes space for new love. Let go gently.",
+                "Your smile is magnetic today. Use it freely.",
+                "Love energy flows where gratitude lives. Appreciate what you have.",
+                "A compliment you receive today carries romantic undertones. Notice it.",
+                "The universe is aligning a connection. Trust the timing.",
+                "Your playful side attracts romance. Don't take everything so seriously.",
+                "Love begins with how you treat yourself. Be gentle today.",
+                "A deep conversation could spark unexpected romantic feelings.",
+                "Release expectations. Real love often arrives in surprising packages.",
+                "Your intuition about someone is correct. Trust your gut.",
+                "Romantic clarity comes when you stop overthinking. Feel, don't analyze.",
+                "You are someone's answered prayer. Let that sink in.",
+                "A loving message may arrive today. Respond with an open heart.",
+                "Your capacity to love is your greatest wealth. Protect it.",
+                "Healing within attracts healing without. Your peace is magnetic.",
+                "A 'coincidental' meeting today has romantic potential. Stay alert.",
+                "Love is not something you chase — it's something you allow.",
+                "Your authenticity is your most attractive quality. Be unapologetically you.",
+                "Romantic energy is amplified when you pursue your passions.",
+                "Someone admires you from a distance. Your light reaches further than you know.",
+                "Letting someone in requires courage. You are brave enough.",
+                "A small romantic gesture from you could mean the world to someone.",
+                "The love you give returns multiplied. Give freely, without scorekeeping.",
+                "Your standards are not too high. The right person will meet them.",
+                "Emotional availability is a superpower. Practice it today.",
+                "A 'butterfly' feeling today is a sign. Pay attention to who triggers it.",
+                "Love flows where there is space. Declutter your emotional baggage.",
+                "You are not hard to love. You've just been asking the wrong people.",
+                "Romantic magic happens outside your comfort zone. Take a small risk.",
+                "Your sensitivity in love is a gift. The right person will cherish it.",
+                "A romantic opportunity appears when you least expect it. Stay present.",
+                "Your inner child deserves love too. Heal, and watch romance blossom.",
+                "Love is not about finding perfection. It's about finding your match in imperfection.",
+                "Your energy today is especially magnetic. Use it to connect.",
+                "A text you send today could spark something beautiful.",
+                "Romance and friendship are deeply connected. Nurture both.",
+                "You deserve a love that adds to your peace, not your anxiety.",
+                "Listening deeply to someone today opens romantic doors.",
+                "Love is patient with you. Be patient with it in return.",
+                "Your romantic future is bright. Today is a preview of that light.",
+                "A creative expression of love — a note, a song, a gesture — lands deeply today.",
+                "The walls you've built served their purpose. Now, it's safe to lower them.",
+                "Someone finds your mind incredibly attractive. Share your thoughts freely.",
+                "Emotional safety is the foundation of passion. Build it first.",
+                "Your love story is unfolding, even in the quiet moments. Trust the plot.",
+                "Romantic energy is playful energy. Laugh, tease, enjoy the dance.",
+                "You are a catch. Remind yourself of that today.",
+                "Love doesn't need to be complicated. Simplicity is deeply romantic.",
+                "A 'thank you' from someone today carries hidden affection. Listen closely.",
+                "You are entering a season of deeper romantic clarity. Embrace it.",
+                "The affection you crave is also craving you. Let it find its way.",
+                "Your romantic courage inspires others. Be the brave one.",
+                "A scent, song, or place today evokes romantic nostalgia. Sit with it.",
+                "Unconditional love starts with the person in the mirror. You are enough.",
+                "A gentle touch or kind word from you could change someone's entire day.",
+                "Love doesn't hurt. If it hurts, it's not love. Remember your worth.",
+                "Your romantic intuition is sharper than ever. Trust what you sense.",
+                "A new romantic chapter is beginning. The page turns today.",
+                "You bring unique magic to every relationship. Don't dim it for anyone.",
+                "Love respects your boundaries. Anyone who doesn't isn't your person.",
+                "Your heart is a compass. Follow where it points, not where fear pulls.",
+                "Romance blooms in the present moment. Put your phone down. Look around."
+            ];
+
+            const avoidToday = [
+                "Impulse purchases — sleep on it first before clicking buy.",
+                "Lending money to someone who hasn't repaid you before. Guard your trust.",
+                "Overcommitting your time. A polite 'no' protects your peace and wallet.",
+                "Gossip disguised as concern. Walk away — it drains your energy.",
+                "Comparing your journey to others on social media. Their highlight reel isn't real.",
+                "Signing contracts without reading the fine print. Patience prevents problems.",
+                "Arguments over small amounts of money. The energy cost exceeds the cash.",
+                "Sharing your big ideas with people who consistently dim your light.",
+                "Skipping meals to save money — your health is your greatest wealth asset.",
+                "That 'limited time offer' that pressures you to decide immediately.",
+                "People who only reach out when they need something.",
+                "Starting a new financial commitment before clearing an old one. Finish first.",
+                "Overthinking a past mistake. Today's slate is clean and fresh.",
+                "Letting pride stop you from asking for help or advice.",
+                "Mixing friendship and money without clear, written boundaries.",
+                "Checking your bank account obsessively. Trust the flow you're building.",
+                "Taking financial advice from someone whose results you wouldn't want.",
+                "Investing in something complex you don't fully understand. Clarity before cash.",
+                "The urge to 'keep up' with someone else's lifestyle. Their path isn't yours.",
+                "Making big decisions when you're hungry, angry, lonely, or tired. HALT first.",
+                "Emotional spending to fill a void. The void needs presence, not presents.",
+                "Lending your name or credit to someone else's purchase.",
+                "Quitting your job impulsively before a solid plan is in place.",
+                "Ignoring a gut feeling that something is 'off' about a deal or person.",
+                "Hoarding broken things 'just in case.' Clutter blocks new abundance.",
+                "Taking calls from energy-draining people during focus time.",
+                "Posting financial wins publicly before they're secure. Privacy is protection.",
+                "Buying things to impress people you don't even like.",
+                "Delaying a difficult money conversation. Avoidance compounds pain.",
+                "Assuming someone else will handle your financial security. Own your future.",
+                "Falling for 'get rich quick' promises. Sustainable wealth is built slowly.",
+                "Spending windfalls before they arrive in your account.",
+                "Letting FOMO drive your investments or purchases. Trends fade.",
+                "Over-giving to the point of resentment. Generosity should uplift.",
+                "Borrowing from tomorrow to fund today's wants.",
+                "Ignoring small recurring charges because they're 'just a few pesos.'",
+                "Taking a 'just this once' approach to a pattern you're trying to break.",
+                "Believing you don't deserve abundance. That door is locked from the inside.",
+                "Seeking external validation before making a money move.",
+                "Letting a bad financial day define your financial identity.",
+                "Surrounding yourself with scarcity-minded people. Their fear is contagious.",
+                "Postponing medical checkups to save money. Prevention is cheaper than cure.",
+                "Investing in appearance over substance. True wealth radiates from within.",
+                "Burning bridges in professional relationships. The world is small.",
+                "Ignoring creative nudges for 'practical' reasons. Creativity is currency.",
+                "Taking on debt for a celebration. Memories shouldn't come with interest.",
+                "Assuming the cheapest option is always best. Value matters more than price.",
+                "Letting guilt about past money mistakes block current opportunities.",
+                "Buying things for a fantasy version of yourself. Shop for who you are.",
+                "Neglecting existing clients while chasing new ones. Retention is wealth.",
+                "Saying 'yes' to every opportunity. Not all money is good money.",
+                "Allowing others to dictate your financial priorities. Your goals, your rules.",
+                "Undercharging for your work because you fear rejection. Your value is real.",
+                "Relying on one income source when you have skills for more.",
+                "Ignoring the environmental impact of your spending. Conscious consumption matters.",
+                "Letting relationship status dictate financial decisions. Be solo-proof.",
+                "Assuming a degree or title guarantees wealth. Continuous learning wins.",
+                "Buying duplicates because of disorganization. Declutter first.",
+                "Sharing passwords or financial access casually. Digital boundaries matter.",
+                "Letting guilt make you keep expensive gifts you don't use. Release them.",
+                "Believing wealth is only for certain types of people. It's for you too.",
+                "Avoiding numbers because they cause anxiety. Face them with support.",
+                "Assuming you're 'bad with money' as a permanent trait. Skills are built.",
+                "Letting someone control all finances without your understanding.",
+                "Ignoring compound interest because it seems slow. Time is magic.",
+                "Refusing to celebrate small financial wins. Joy attracts more.",
+                "Thinking you need a lot to start investing. Micro-investing exists.",
+                "Hiding financial struggles from everyone. Community brings solutions.",
+                "Assuming wealth will come 'someday' without a plan. Set a date.",
+                "Letting fear of looking stupid stop you from learning about money.",
+                "Spending to relieve stress when free alternatives exist.",
+                "Ignoring financial news or industry trends. Stay informed.",
+                "Believing wanting wealth makes you greedy. Abundance shared is a virtue.",
+                "Accepting a salary without negotiation. The first number is rarely final.",
+                "Letting perfectionism delay your side hustle. Done beats perfect.",
+                "Avoiding money conversations with children. Financial literacy is legacy.",
+                "Thinking your situation is permanent. The wheel turns daily.",
+                "Storing all savings in one place. Diversify storage and income.",
+                "Letting expired opportunities haunt you. What's meant for you won't miss you.",
+                "Assuming financial success requires sacrificing all joy. Enjoy the journey.",
+                "Ignoring rest in wealth-building. Burnout is expensive to recover from.",
+                "Believing you're too old or too young. The best time is now.",
+                "Letting cultural taboos keep you silent about money. Open conversations open doors.",
+                "Assuming 'safe' always means 'smart.' Calculated risks build fortunes.",
+                "Neglecting mental health in pursuit of wealth. An empty soul is fatal.",
+                "Thinking a windfall will solve everything. Financial maturity manages both.",
+                "Ignoring tax implications. Surprise taxes are wealth eroders.",
+                "Letting weekends undo a week of discipline. Consistency wins.",
+                "Assuming you'll 'figure it out later' about retirement. Later arrives fast.",
+                "Believing money changes people. It only amplifies who they already are.",
+                "Waiting for permission to pursue wealth dreams. Permission granted.",
+                "Ignoring financial wisdom from elders. Ancestral knowledge is gold.",
+                "Thinking you need to be ruthless to be rich. Kindness builds enduring wealth.",
+                "Letting rejection define your worth. Every 'no' redirects to a better 'yes.'",
+                "Assuming you can do it all alone. Even solo journeys need maps.",
+                "Postponing joy until you hit a financial goal. Joy fuels the journey.",
+                "Believing you're not 'lucky' enough. Luck is preparation meeting opportunity.",
+                "Ignoring the value of your network. Relationships are the real gold.",
+                "Letting money pursuit cost your integrity. A clean conscience is true wealth."
+            ];
+
+            const moodEnergies = [
+                "Calm confidence attracts abundance today.",
+                "A quiet excitement bubbles beneath the surface.",
+                "Grounded and magnetic — people feel your presence.",
+                "Playful curiosity opens unexpected doors.",
+                "Deep inner peace radiates like a wealth signal.",
+                "Focused determination cuts through distractions.",
+                "Gentle receptivity — allow, don't chase.",
+                "Bold courage to take the next step.",
+                "Serene trust that all is unfolding perfectly.",
+                "Vibrant creativity sparking new ideas.",
+                "Steady patience — the tortoise wins this race.",
+                "Joyful anticipation of good things arriving.",
+                "Quiet power — speak less, attract more.",
+                "Warm gratitude softening every interaction.",
+                "Clear vision — you see through illusions today.",
+                "Resilient strength from lessons learned.",
+                "Open-hearted generosity lifting your frequency.",
+                "Playful mischief — don't take money too seriously.",
+                "Deep listening — the answer is in the silence.",
+                "Radiant self-worth that needs no external proof.",
+                "Gentle release of what no longer serves you.",
+                "Fierce protection of your peace and resources.",
+                "Magnetic charm drawing people and opportunities.",
+                "Stillness that speaks louder than action today.",
+                "Enthusiastic momentum — start, then adjust.",
+                "Tender self-compassion healing old money wounds.",
+                "Noble integrity guiding your financial choices.",
+                "Lighthearted detachment from outcomes. Trust the process.",
+                "Electric inspiration — write down every idea today.",
+                "Soulful connection to your deeper purpose and worth.",
+                "Quiet courage to face a financial truth gently.",
+                "Expansive vision — think bigger than yesterday.",
+                "Sensual pleasure in simple, free joys of life.",
+                "Clear boundaries spoken with love and firmness.",
+                "Grateful reflection on how far you've come.",
+                "Childlike wonder making money matters feel lighter.",
+                "Steadfast loyalty to your own financial goals.",
+                "Effortless flow — don't force, just allow.",
+                "Wise discernment between opportunity and distraction.",
+                "Vibrant health energy fueling your wealth pursuits.",
+                "Soul-deep certainty that you are provided for.",
+                "Playful experimentation with new income ideas.",
+                "Humble confidence — you know your value.",
+                "Cosmic perspective — money is energy, you're a channel.",
+                "Tender vulnerability that builds authentic connections.",
+                "Fierce independence — you are the source of your security.",
+                "Harmonious balance between saving and enjoying life.",
+                "Silent knowing that a breakthrough is near.",
+                "Grounded optimism — realistic yet hopeful.",
+                "Radiant authenticity attracting aligned opportunities.",
+                "Quiet satisfaction in small financial disciplines.",
+                "Bold self-expression — your uniqueness is your wealth.",
+                "Nurturing energy — care for your resources like a garden.",
+                "Limitless imagination breaking old money ceilings.",
+                "Patient observation — the right moment reveals itself.",
+                "Joyful simplicity — less truly is more today.",
+                "Empowered choice — every decision is yours to make.",
+                "Loving detachment from outcomes. Do your best, release the rest.",
+                "Sacred respect for the flow of giving and receiving.",
+                "Cheerful resilience — bounce back from any money hiccup.",
+                "Inner royalty — you deserve abundance as much as anyone.",
+                "Tranquil awareness that money is a tool, not a master.",
+                "Bright clarity cutting through confusion.",
+                "Soulful generosity that knows its limits and honors them.",
+                "Playful abundance — money is a game. Learn to play.",
+                "Deep-rooted security that no external loss can shake.",
+                "Vibrant magnetism — you are a living prosperity signal.",
+                "Tender courage to ask for what you're worth.",
+                "Expansive relaxation — wealth flows to a peaceful mind.",
+                "Fiery passion channeled into productive wealth creation.",
+                "Humble openness to learn from everyone today.",
+                "Joyful celebration of others' success as proof of possibility.",
+                "Still, small voice of intuition louder than any fear.",
+                "Rock-solid faith in your ability to create value.",
+                "Luminous presence — you light up rooms.",
+                "Gentle honesty about your financial reality — it's the starting line.",
+                "Free-spirited creativity that monetizes itself naturally.",
+                "Unshakeable equilibrium — steady about money.",
+                "Tender patience with your financial growth. Seeds take time.",
+                "Radiant simplicity — the answer is simpler than you think."
+            ];
+
+            const pastReflections = [
+                "That day carried a quiet opportunity. If you had taken a bold step — whether in love, work, or a personal risk — the energy suggests things would have unfolded in your favor.",
+                "Looking back, you were standing at a crossroads without realizing it. The choice you made shaped where you are now. Honor that version of you — they did their best.",
+                "A door was opening that day, but you may have been looking the other way. That's not regret — it's a reminder that awareness is everything. You have it now.",
+                "The energy around that date was one of quiet preparation. You weren't meant to act yet. Seeds were being planted that would bloom much later.",
+                "Someone was thinking of you that day. Their energy touched yours. The connection may have seemed ordinary, but it was part of a larger pattern unfolding.",
+                "Financially, that day held a missed signal — a small opportunity disguised as an inconvenience. The lesson: abundance hides in plain sight.",
+                "Emotionally, you were stronger than you knew. That day tested you, but it also revealed your resilience. You passed the test without realizing it.",
+                "A conversation that day planted a seed you may not have noticed. Its fruit is still ripening. Pay attention to what's growing.",
+                "The universe was nudging you toward a different path. Every detour has purpose. You are exactly where you need to be.",
+                "That date vibrates with the energy of 'almost' — an almost meeting, an almost decision, an almost breakthrough. 'Almost' means you were close. Keep going.",
+                "Looking back with gentle eyes: you were healing from something you didn't talk about. That healing was the real work of that day, not anything external.",
+                "A creative spark was lit that day. It may have dimmed, but it never went out. Revisit that spark. It still has fire.",
+                "The stars suggest a romantic possibility passed by unnoticed. Not missed — just not yet ready. Timing is everything, and yours is coming.",
+                "Professionally, you made a small move that day that built invisible momentum. You couldn't see it then, but you can trace back to it now.",
+                "You were protected from something that day — a path not taken that would have led to difficulty. Trust the closed doors as much as the open ones.",
+                "The energy of that day was 'pause.' Not stuck. Not delayed. Just pause. And pauses are sacred — they prevent burnout and bad decisions.",
+                "Someone observed your kindness that day and was quietly moved. Your impact is always greater than you know.",
+                "A financial decision — even a tiny one — set off a chain reaction you're still experiencing. Small choices, big ripples.",
+                "You were more magnetic than you realized that day. People were drawn to you. That charisma is still yours. Claim it.",
+                "A lesson was offered that day, wrapped in frustration. Did you unwrap it? If not, the lesson will return — gentler next time.",
+                "The past version of you on that day deserves compassion, not criticism. They were working with the tools they had. You've grown. That's the point.",
+                "Emotionally, the day carried a breakthrough beneath the surface. You may not have felt it, but something shifted. The cracks let light in.",
+                "A friendship deepened in a way that would later become essential. Ordinary moments build extraordinary bonds.",
+                "That day held a 'test run' for a future success. The small version preceded the big one. Recognize the pattern — it's happening again.",
+                "You were standing in your own power and didn't know it. Retrospect reveals your strength. Carry that knowing forward.",
+                "The universe sent you a sign that day — in a song, a number, a chance encounter. It wasn't random. Signs still surround you.",
+                "A letting-go happened that day. You released something — a belief, a person, a fear — and made space. Space that is now ready to be filled.",
+                "Romantically, your heart was preparing for something bigger. The quiet moments were the prelude. The symphony is still playing.",
+                "You planted a seed of intention that day, perhaps unknowingly. Intentions are powerful. What were you wishing for? It may still be on its way.",
+                "The energy was 'trust.' Trust the process, trust the delay, trust the unknown. That trust was not misplaced. It never is.",
+                "A pivot happened that day — subtle, internal, invisible to others. Pivots change trajectories. You are not on the same path you were.",
+                "Looking back, you were being redirected. The frustration was guidance. The obstacle was the way. You navigated it, and you're stronger.",
+                "Someone learned something from you that day — a lesson you didn't know you were teaching. Your life is a classroom. Teach well.",
+                "The vibration of that day was 'new beginnings' disguised as ordinary routine. New chapters often start without a title page.",
+                "You were enough that day. Exactly as you were. You are enough today. Exactly as you are. The universe doesn't make mistakes.",
+                "A gratitude you expressed that day echoed forward. Gratitude is a boomerang — it returns multiplied. Expect its arrival.",
+                "That date marks a quiet victory. No one applauded. You didn't even celebrate. But you won something — a fear conquered, a step taken.",
+                "The cosmos was conspiring in your favor that day, even if it felt otherwise. Conspiracy requires secrecy. The reveal is ongoing.",
+                "You touched someone's life that day in a way you'll never know about. Your existence is a gift. Never doubt your impact.",
+                "The energy was 'become.' Not do. Not have. Become. Who were you becoming that day? That evolution is still underway.",
+                "A synchronicity occurred — a meaningful coincidence. The universe speaks in patterns. That pattern was for you.",
+                "You were building character that day, not comfort. Character outlasts comfort. What you built then serves you now.",
+                "A boundary you set that day protected something precious. Boundaries are self-love in action. Keep setting them.",
+                "The feeling of 'stuck' that day was actually incubation. Chicks don't see the shell cracking. But it is. And so are you.",
+                "You asked for a sign that day. Did you receive it? Signs are subtle. Quiet your mind and you'll see it was always there.",
+                "A talent you used that day — even casually — is a clue to your purpose. Your gifts are your GPS. Follow them.",
+                "You were more loved that day than you realized. Love surrounds you even when loneliness feels loud. It never left.",
+                "The lesson of that day was patience. You wanted speed; the universe gave you depth. Depth lasts. Speed fades.",
+                "You made someone smile that day. In a world of billions, you changed a moment. That's not small. That's everything.",
+                "A prayer you whispered that day was heard. Not always answered as expected, but always received. Trust the response, even in its unexpected form.",
+                "The energy was 'release.' Clench less. Hold loosely. What's meant to stay will. What leaves was never yours to keep.",
+                "You were in a transition that day — between versions of yourself. Transitions are uncomfortable but sacred. Honor the in-between.",
+                "A piece of wisdom landed in your awareness that day. It may have seemed insignificant. It wasn't. Wisdom accumulates quietly.",
+                "The cosmic weather that day was 'alignment.' Things were lining up, even if chaos appeared on the surface. Alignment is silent.",
+                "You were braver than you remember. Fear was present, but so was courage. Courage is not the absence of fear — it's action despite it.",
+                "An ending happened that day. Endings are painful but purposeful. That ending cleared the stage for this beginning.",
+                "The vibration was 'self-worth.' You were being asked to value yourself. That lesson may still be unfolding. You are invaluable.",
+                "You made a difference that day. Not a headline. Not a viral moment. But a ripple. And ripples travel farther than waves.",
+                "Looking back, that day was a gift wrapped in ordinary paper. The best gifts often are. Unwrap the memory with gratitude."
+            ];
+
+            // ============ DOM ELEMENTS ============
+            const todayDateSpan = document.getElementById('todayDate');
+            const toast = document.getElementById('toast');
+            const resetLink = document.getElementById('resetLink');
+            const installBtn = document.getElementById('installBtn');
+
+            // Today tab
+            const monthSelect = document.getElementById('monthSelect');
+            const daySelect = document.getElementById('daySelect');
+            const revealBtn = document.getElementById('revealBtn');
+            const outputToday = document.getElementById('outputToday');
+
+            // Past tab
+            const pastMonthSelect = document.getElementById('pastMonthSelect');
+            const pastDaySelect = document.getElementById('pastDaySelect');
+            const pastDateInput = document.getElementById('pastDateInput');
+            const pastBtn = document.getElementById('pastBtn');
+            const outputPast = document.getElementById('outputPast');
+
+            // Future tab
+            const futureMonthSelect = document.getElementById('futureMonthSelect');
+            const futureDaySelect = document.getElementById('futureDaySelect');
+            const futureDateInput = document.getElementById('futureDateInput');
+            const futureBtn = document.getElementById('futureBtn');
+            const outputFuture = document.getElementById('outputFuture');
+
+            // ============ TODAY'S DATE ============
+            const today = new Date();
+            todayDateSpan.textContent = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            // ============ POPULATE MONTHS ============
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+
+            function populateMonthDropdown(selectEl) {
+                monthNames.forEach((name, idx) => {
+                    const option = document.createElement('option');
+                    option.value = idx + 1;
+                    option.textContent = name;
+                    selectEl.appendChild(option);
+                });
+            }
+
+            function populateDays(selectEl, month) {
+                selectEl.innerHTML = '<option value="">Day</option>';
+                if (!month) return;
+                const daysInMonth = new Date(2024, month, 0).getDate();
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const option = document.createElement('option');
+                    option.value = d;
+                    option.textContent = d;
+                    selectEl.appendChild(option);
+                }
+            }
+
+            populateMonthDropdown(monthSelect);
+            populateMonthDropdown(pastMonthSelect);
+            populateMonthDropdown(futureMonthSelect);
+
+            monthSelect.addEventListener('change', function() { populateDays(daySelect, parseInt(this.value)); daySelect.value = ''; outputToday.style.display = 'none'; });
+            pastMonthSelect.addEventListener('change', function() { populateDays(pastDaySelect, parseInt(this.value)); pastDaySelect.value = ''; outputPast.style.display = 'none'; });
+            futureMonthSelect.addEventListener('change', function() { populateDays(futureDaySelect, parseInt(this.value)); futureDaySelect.value = ''; outputFuture.style.display = 'none'; });
+
+            // ============ TABS ============
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+                });
+            });
+
+            // ============ HELPERS ============
+            function getDayOfYear(date) {
+                const start = new Date(date.getFullYear(), 0, 0);
+                return Math.floor((date - start) / 86400000);
+            }
+
+            function computeCode(month, day) {
+                return ((month * 7 + day * 13) % 31) + 1;
+            }
+
+            function getFromPool(pool, seed, offset = 0) {
+                return pool[Math.abs(seed + offset) % pool.length];
+            }
+
+            function setCookie(name, value, days) {
+                const d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = name + "=" + encodeURIComponent(JSON.stringify(value)) + ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax";
+            }
+
+            function getCookie(name) {
+                const cname = name + "=";
+                const ca = document.cookie.split(';');
+                for (let c of ca) {
+                    c = c.trim();
+                    if (c.indexOf(cname) === 0) {
+                        try { return JSON.parse(c.substring(cname.length)); } catch (e) { return null; }
+                    }
+                }
+                return null;
+            }
+
+            function buildReading(month, day, targetDate) {
+                const code = computeCode(month, day);
+                const dayOfYear = targetDate ? getDayOfYear(new Date(targetDate)) : getDayOfYear(new Date());
+                const baseSeed = dayOfYear + code;
+                return {
+                    code,
+                    fortune: getFromPool(fortunes, baseSeed, 0),
+                    luckyColor: getFromPool(luckyColors, baseSeed, 3),
+                    luckyNumber: getFromPool(luckyNumbers, baseSeed, 7),
+                    powerWord: getFromPool(powerWords, baseSeed, 11),
+                    moneyAdvice: getFromPool(moneyAdvice, baseSeed, 13),
+                    loveEnergy: getFromPool(loveEnergies, baseSeed, 17),
+                    avoid: getFromPool(avoidToday, baseSeed, 19),
+                    mood: getFromPool(moodEnergies, baseSeed, 23),
+                    targetDate
+                };
+            }
+
+            function getAvoidTease(message) {
+                if (message.length <= 40) return message;
+                return message.substring(0, 40).replace(/\s+\S*$/, '');
+            }
+
+            function renderReadingOutput(reading, isFuture, isPast) {
+                const badgeText = isFuture ? '🔮 Preview for ' + new Date(reading.targetDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) :
+                                  isPast ? '📅 Looking back at ' + new Date(reading.targetDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
+                const badgeDisplay = (isFuture || isPast) ? 'inline-block' : 'none';
+                const avoidTease = getAvoidTease(reading.avoid);
+
+                return `
+                    <div class="code-display">
+                        <div class="code-label">Your Manifest Code</div>
+                        <div class="code-number">${reading.code}</div>
+                        <div class="result-badge" style="display:${badgeDisplay};">${badgeText}</div>
+                    </div>
+                    <div class="reading-grid">
+                        <div class="reading-card"><div class="card-icon">🔮</div><div class="card-content"><div class="card-label">Today's Manifestation</div><div class="card-value">"${reading.fortune}"</div></div></div>
+                        <div class="reading-card"><div class="card-icon">🎨</div><div class="card-content"><div class="card-label">Lucky Color</div><div class="card-value large">${reading.luckyColor}</div></div></div>
+                        <div class="reading-card"><div class="card-icon">🔢</div><div class="card-content"><div class="card-label">Lucky Number</div><div class="card-value large">${reading.luckyNumber}</div></div></div>
+                        <!-- AD SLOT 3 — Mid Results -->
+                        <div class="mid-ad-slot">— Ad Slot 3 — Mid Results</div>
+                        <div class="reading-card"><div class="card-icon">⚡</div><div class="card-content"><div class="card-label">Power Word</div><div class="card-value large">${reading.powerWord}</div></div></div>
+                        <div class="reading-card"><div class="card-icon">💡</div><div class="card-content"><div class="card-label">Money Advice</div><div class="card-value">${reading.moneyAdvice}</div></div></div>
+                        <div class="reading-card"><div class="card-icon">❤️</div><div class="card-content"><div class="card-label">Love Energy</div><div class="card-value">${reading.loveEnergy}</div></div></div>
+                        <div class="reading-card card-avoid" id="avoidCard" data-full="${reading.avoid.replace(/"/g, '&quot;')}">
+                            <div class="card-icon">⚠️</div>
+                            <div class="card-content">
+                                <div class="card-label">Avoid Today</div>
+                                <div class="card-value avoid-tease">${avoidTease}</div>
+                                <div class="card-value avoid-full">${reading.avoid}</div>
+                                <div class="tap-prompt">👆 Tap to read more</div>
+                                <div class="tap-close">▲ Tap to close</div>
+                                <div class="avoid-ad-slots">
+                                    <!-- AD SLOT 5 — Avoid Top -->
+                                    <div class="avoid-ad-slot">— Ad Slot 5 — Avoid Top</div>
+                                    <!-- AD SLOT 6 — Avoid Bottom -->
+                                    <div class="avoid-ad-slot">— Ad Slot 6 — Avoid Bottom</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reading-card"><div class="card-icon">🌙</div><div class="card-content"><div class="card-label">Mood Energy</div><div class="card-value">${reading.mood}</div></div></div>
+                    </div>
+                    <!-- AD SLOT 4 — Bottom of Result -->
+                    <div class="mid-ad-slot">— Ad Slot 4 — Result Bottom</div>
+                    <div class="share-section">
+                        <button class="btn-share primary-share share-copy-btn">📋 Share Link</button>
+                        <button class="btn-share share-fb-btn">📘 Facebook</button>
+                    </div>
+                `;
+            }
+
+            function attachAvoidListeners(container) {
+                const avoidCard = container.querySelector('#avoidCard');
+                if (!avoidCard) return;
+                avoidCard.addEventListener('click', function(e) {
+                    if (e.target.closest('.avoid-ad-slot')) return;
+                    this.classList.toggle('expanded');
+                });
+            }
+
+            function attachShareListeners(container, month, day, code, fortune) {
+                const copyBtn = container.querySelector('.share-copy-btn');
+                const fbBtn = container.querySelector('.share-fb-btn');
+                if (copyBtn) {
+                    copyBtn.addEventListener('click', () => {
+                        const url = new URL(window.location.href);
+                        url.searchParams.set('m', month);
+                        url.searchParams.set('d', day);
+                        const text = `✨ My Manifest reading today. See yours: ${url.toString()}`;
+                        navigator.clipboard.writeText(text).then(() => {
+                            toast.classList.add('show');
+                            setTimeout(() => toast.classList.remove('show'), 2500);
+                        }).catch(() => {
+                            const ta = document.createElement('textarea');
+                            ta.value = text;
+                            document.body.appendChild(ta);
+                            ta.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(ta);
+                            toast.classList.add('show');
+                            setTimeout(() => toast.classList.remove('show'), 2500);
+                        });
+                    });
+                }
+                if (fbBtn) {
+                    fbBtn.addEventListener('click', () => {
+                        const url = new URL(window.location.href);
+                        url.searchParams.set('m', month);
+                        url.searchParams.set('d', day);
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url.toString())}`, '_blank', 'width=626,height=436');
+                    });
+                }
+            }
+
+            // ============ TODAY REVEAL ============
+            revealBtn.addEventListener('click', () => {
+                const month = parseInt(monthSelect.value);
+                const day = parseInt(daySelect.value);
+                if (!month || !day) { alert('Please select both your birth month and day.'); return; }
+                const reading = buildReading(month, day, null);
+                outputToday.innerHTML = renderReadingOutput(reading, false, false);
+                outputToday.style.display = 'block';
+                outputToday.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                attachAvoidListeners(outputToday);
+                attachShareListeners(outputToday, month, day, reading.code, reading.fortune);
+            });
+
+            // ============ FUTURE REVEAL ============
+            futureBtn.addEventListener('click', () => {
+                const month = parseInt(futureMonthSelect.value);
+                const day = parseInt(futureDaySelect.value);
+                const futureDateStr = futureDateInput.value;
+                if (!month || !day) { alert('Please enter your birth date first.'); return; }
+                if (!futureDateStr) { alert('Please select a future date.'); return; }
+                const futureDate = new Date(futureDateStr + 'T00:00:00');
+                const todayDate = new Date(); todayDate.setHours(0,0,0,0);
+                if (futureDate <= todayDate) { alert('Please select a date in the future. For today, use the Today tab.'); return; }
+                const cookieKey = 'mm_future_' + month + '_' + day + '_' + futureDateStr;
+                let reading = getCookie(cookieKey);
+                if (!reading) {
+                    reading = buildReading(month, day, futureDateStr);
+                    setCookie(cookieKey, reading, 365);
+                }
+                reading.targetDate = futureDateStr;
+                outputFuture.innerHTML = renderReadingOutput(reading, true, false);
+                outputFuture.style.display = 'block';
+                outputFuture.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                attachAvoidListeners(outputFuture);
+                attachShareListeners(outputFuture, month, day, reading.code, reading.fortune);
+            });
+
+            // ============ PAST REFLECTION ============
+            pastBtn.addEventListener('click', () => {
+                const month = parseInt(pastMonthSelect.value);
+                const day = parseInt(pastDaySelect.value);
+                const pastDateStr = pastDateInput.value;
+                if (!month || !day) { alert('Please enter your birth date first.'); return; }
+                if (!pastDateStr) { alert('Please select a past date.'); return; }
+                const pastDate = new Date(pastDateStr + 'T00:00:00');
+                const todayDate = new Date(); todayDate.setHours(0,0,0,0);
+                if (pastDate >= todayDate) { alert('Please select a date in the past. For today, use the Today tab.'); return; }
+                const cookieKey = 'mm_past_' + month + '_' + day + '_' + pastDateStr;
+                let reflection = getCookie(cookieKey);
+                if (!reflection) {
+                    const code = computeCode(month, day);
+                    const dayOfYear = getDayOfYear(new Date(pastDateStr));
+                    const seed = dayOfYear + code;
+                    reflection = {
+                        text: getFromPool(pastReflections, seed, 0),
+                        lesson: getFromPool(pastReflections, seed, 31),
+                        date: pastDateStr
+                    };
+                    setCookie(cookieKey, reflection, 365);
+                }
+                outputPast.innerHTML = `
+                    <div class="past-reflection">
+                        <div class="reflection-date">🕰️ Looking Back at ${new Date(reflection.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                        <p>"${reflection.text}"</p>
+                        <!-- AD SLOT 7 — Past Top -->
+                        <div class="past-ad-slot">— Ad Slot 7 — Past Top</div>
+                        <p class="reflection-lesson">🌟 A lesson for today: "${reflection.lesson}"</p>
+                        <!-- AD SLOT 8 — Past Bottom -->
+                        <div class="past-ad-slot">— Ad Slot 8 — Past Bottom</div>
+                    </div>
+                    <div class="share-section">
+                        <button class="btn-share primary-share past-share-copy-btn">📋 Share Link</button>
+                        <button class="btn-share past-share-fb-btn">📘 Facebook</button>
+                    </div>
+                `;
+                outputPast.style.display = 'block';
+                outputPast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                const copyBtn = outputPast.querySelector('.past-share-copy-btn');
+                const fbBtn = outputPast.querySelector('.past-share-fb-btn');
+                if (copyBtn) {
+                    copyBtn.addEventListener('click', () => {
+                        const url = new URL(window.location.href);
+                        url.searchParams.set('m', month);
+                        url.searchParams.set('d', day);
+                        const text = `✨ My Manifest past reflection. See yours: ${url.toString()}`;
+                        navigator.clipboard.writeText(text).then(() => {
+                            toast.classList.add('show');
+                            setTimeout(() => toast.classList.remove('show'), 2500);
+                        });
+                    });
+                }
+                if (fbBtn) {
+                    fbBtn.addEventListener('click', () => {
+                        const url = new URL(window.location.href);
+                        url.searchParams.set('m', month);
+                        url.searchParams.set('d', day);
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url.toString())}`, '_blank', 'width=626,height=436');
+                    });
+                }
+            });
+
+            // ============ RESET ============
+            resetLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                monthSelect.value = ''; populateDays(daySelect, null);
+                pastMonthSelect.value = ''; populateDays(pastDaySelect, null); pastDateInput.value = '';
+                futureMonthSelect.value = ''; populateDays(futureDaySelect, null); futureDateInput.value = '';
+                outputToday.style.display = 'none'; outputPast.style.display = 'none'; outputFuture.style.display = 'none';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ============ PWA INSTALL ============
+            let deferredPrompt;
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                installBtn.classList.add('visible');
+            });
+            installBtn.addEventListener('click', async () => {
+                if (!deferredPrompt) return;
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') installBtn.classList.remove('visible');
+                deferredPrompt = null;
+            });
+            window.addEventListener('appinstalled', () => {
+                installBtn.classList.remove('visible');
+                deferredPrompt = null;
+            });
+
+            // ============ URL PRE-FILL ============
+            const params = new URLSearchParams(window.location.search);
+            const urlMonth = params.get('m');
+            const urlDay = params.get('d');
+            if (urlMonth && urlDay && !isNaN(urlMonth) && !isNaN(urlDay)) {
+                const m = parseInt(urlMonth);
+                const d = parseInt(urlDay);
+                if (m >= 1 && m <= 12) {
+                    monthSelect.value = m;
+                    populateDays(daySelect, m);
+                    daySelect.value = d;
+                    // Activate Today tab
+                    tabBtns.forEach(b => { b.classList.remove('active'); if (b.dataset.tab === 'today') b.classList.add('active'); });
+                    tabContents.forEach(c => { c.classList.remove('active'); if (c.id === 'tab-today') c.classList.add('active'); });
+                    setTimeout(() => revealBtn.click(), 300);
+                }
+            }
+
+            // ============ INIT ============
+            populateDays(daySelect, null);
+            populateDays(pastDaySelect, null);
+            populateDays(futureDaySelect, null);
+
+            // Service Worker
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('sw.js').catch(() => {});
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
