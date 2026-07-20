@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Manifest — Manifest Your Day</title>
+    <meta name="description" content="See what's manifesting for you today. Your lucky color and number inside.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="My Manifest — What's Your Code?">
+    <meta property="og:description" content="See what's manifesting for you today. Your lucky color and number inside.">
+    <meta property="og:image" content="https://zed-44.github.io/my-manifest/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="My Manifest">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="My Manifest — What's Your Code?">
+    <meta name="twitter:description" content="See what's manifesting for you today.">
+    <meta name="twitter:image" content="https://zed-44.github.io/my-manifest/og-image.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a1a0f">
+    <style>
+        :root { --gold: #d4af37; --text: #e8e5dc; --text-muted: #a8a590; --bg: #0a1a0f; --danger: #c97a7a; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Georgia, serif; background: var(--bg); background-image: radial-gradient(ellipse at 30% 10%, rgba(212,175,55,0.06) 0%, transparent 55%); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 1rem; text-align: center; }
+        .container { max-width: 500px; width: 100%; }
+        h1 { font-size: 2rem; color: var(--text); margin: 0.5rem 0; }
+        h1 span { color: var(--gold); }
+        .subtitle { color: var(--text-muted); font-style: italic; margin-bottom: 1rem; }
+        .label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); opacity: 0.7; margin: 0.5rem 0 0.3rem; }
+        select, button, input { font-family: Georgia, serif; padding: 0.6rem 1rem; border-radius: 0.8rem; font-size: 0.9rem; margin: 0.25rem; }
+        select { background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.35); color: var(--text); }
+        button { background: #d4af37; color: #0a1a0f; border: none; cursor: pointer; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .ad-box { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); padding: 5px; margin: 6px auto; border-radius: 8px; min-height: 50px; display: flex; align-items: center; justify-content: center; max-width: 500px; overflow: hidden; }
+        .output { margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 1rem; display: none; text-align: left; }
+        .code-number { font-size: 3rem; color: var(--gold); text-align: center; }
+        .card { display: flex; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .card-label { font-size: 0.6rem; text-transform: uppercase; color: var(--gold); }
+        .avoid-card { border-left: 3px solid var(--danger); background: rgba(201,122,122,0.08); cursor: pointer; padding: 0.6rem; border-radius: 0.5rem; margin: 0.5rem 0; }
+        .avoid-card .avoid-full { display: none; }
+        .avoid-card.expanded .avoid-full { display: inline; }
+        .avoid-card.expanded .avoid-tease { display: none; }
+        .tap-prompt { font-size: 0.6rem; color: var(--danger); text-align: center; }
+        .avoid-card.expanded .tap-prompt { display: none; }
+        .avoid-ad { display: none; margin-top: 0.5rem; }
+        .avoid-card.expanded .avoid-ad { display: block; }
+        .share-section { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.8rem; flex-wrap: wrap; }
+        .btn-share { background: transparent; border: 1.5px solid var(--gold); color: var(--gold); padding: 0.5rem 1rem; border-radius: 2rem; cursor: pointer; font-size: 0.75rem; }
+        .btn-share.fb { background: #1877F2; border-color: #1877F2; color: #fff; }
+        .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: #1a3a25; color: #e8c955; padding: 0.6rem 1.5rem; border-radius: 2rem; opacity: 0; transition: opacity 0.3s; z-index: 100; }
+        .toast.show { opacity: 1; }
+        .tab-row { display: flex; gap: 0.3rem; justify-content: center; margin: 0.8rem 0; }
+        .tab-btn { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); padding: 0.4rem 0.9rem; border-radius: 1.5rem; cursor: pointer; font-size: 0.7rem; }
+        .tab-btn.active { background: rgba(212,175,55,0.15); border-color: var(--gold); color: var(--gold); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- SLOT 1 -->
+    <div class="ad-box" id="adSlot1"></div>
+
+    <div class="container">
+        <h1>My <span>Manifest</span></h1>
+        <p class="subtitle">Manifest Your Day</p>
+        <p id="todayDate" style="color:#a8a590;font-size:0.8rem;"></p>
+        <div class="tab-row">
+            <button class="tab-btn active" data-tab="today">✦ Today</button>
+            <button class="tab-btn" data-tab="past">📅 Past</button>
+            <button class="tab-btn" data-tab="future">🔮 Future</button>
+        </div>
+        <div class="tab-content active" id="tab-today">
+            <div class="label">Enter Your Birth Date</div>
+            <select id="m1"><option value="">Month</option></select>
+            <select id="d1"><option value="">Day</option></select>
+            <button id="btn1">Manifest ✦</button>
+            <div class="output" id="out1"></div>
+        </div>
+        <div class="tab-content" id="tab-past">
+            <div class="label">Enter Your Birth Date</div>
+            <select id="m2"><option value="">Month</option></select>
+            <select id="d2"><option value="">Day</option></select>
+            <div class="label" style="margin-top:0.8rem;">Pick a Past Date</div>
+            <input type="date" id="pastDate">
+            <button id="btn2">Reflect ✦</button>
+            <div class="output" id="out2"></div>
+        </div>
+        <div class="tab-content" id="tab-future">
+            <div class="label">Enter Your Birth Date</div>
+            <select id="m3"><option value="">Month</option></select>
+            <select id="d3"><option value="">Day</option></select>
+            <div class="label" style="margin-top:0.8rem;">Pick a Future Date</div>
+            <input type="date" id="futureDate">
+            <button id="btn3">Preview ✦</button>
+            <div class="output" id="out3"></div>
+        </div>
+    </div>
+
+    <!-- SLOT 2 -->
+    <div class="ad-box" id="adSlot2"><a href="https://www.effectivecpmnetwork.com/napnvfb64?key=a0eebf0f133fc905b0bc755bcf2a3003" target="_blank" style="color:#d4af37;text-decoration:none;">✦ Sponsored</a></div>
+
+    <!-- SLOT 8 -->
+    <div class="ad-box" id="adSlot8"></div>
+
+    <p style="font-size:0.6rem;color:#a8a590;margin-top:0.5rem;">✦ Manifestation changes daily. Your code is forever.</p>
+    <div class="toast" id="toast">📋 Link copied!</div>
+
+    <script>
+    (function() {
+        var fortunes = ["A golden opportunity whispers your name today.","Unexpected abundance flows from a direction you least expect.","Your generosity plants seeds for a future harvest.","A calculated risk may open a treasure chest.","Financial wisdom you've ignored will now shine brightly.","Someone from your past holds the key to a prosperous idea.","The number 8 appears wherever money moves.","Today, patience is your greatest investment.","A small habit change today compounds into future riches.","Your creativity is the real gold mine."];
+        var luckyColors = ["Emerald Green","Burnished Gold","Deep Crimson","Ocean Blue","Amethyst","Burnt Orange","Silver Mist","Ivory Cream","Onyx Black","Rose Blush"];
+        var luckyNumbers = ["03","07","11","14","18","21","25","29","32","36"];
+        var powerWords = ["BOUNDARIES","FOCUS","GRATITUDE","ACTION","PATIENCE","COURAGE","FLOW","DISCIPLINE","TRUST","RELEASE"];
+        var moneyAdvice = ["Check that subscription you forgot about.","Today is perfect to review your budget.","An old skill of yours is worth money online.","Cook at home today.","Negotiate one bill today."];
+        var loveEnergies = ["Your warmth attracts the right kind of attention.","A small gesture of kindness sparks something deeper.","Someone is noticing your energy from afar.","Love arrives in unexpected forms today.","Your heart knows what it wants."];
+        var avoidToday = ["Impulse purchases — sleep on it first before clicking buy.","Lending money to someone who hasn't repaid you.","Overcommitting your time. A polite no protects your peace.","Gossip disguised as concern. Walk away.","Comparing your journey to others on social media."];
+        var moodEnergies = ["Calm confidence attracts abundance today.","A quiet excitement bubbles beneath the surface.","Grounded and magnetic.","Playful curiosity opens unexpected doors.","Deep inner peace radiates."];
+        var pastReflections = ["That day carried a quiet opportunity.","Looking back, you were at a crossroads.","A door was opening that day.","The energy was one of quiet preparation.","Someone was thinking of you that day."];
+
+        var todayDateSpan = document.getElementById('todayDate');
+        var toast = document.getElementById('toast');
+        var m1=document.getElementById('m1'), d1=document.getElementById('d1'), btn1=document.getElementById('btn1'), out1=document.getElementById('out1');
+        var m2=document.getElementById('m2'), d2=document.getElementById('d2'), pastDate=document.getElementById('pastDate'), btn2=document.getElementById('btn2'), out2=document.getElementById('out2');
+        var m3=document.getElementById('m3'), d3=document.getElementById('d3'), futureDate=document.getElementById('futureDate'), btn3=document.getElementById('btn3'), out3=document.getElementById('out3');
+        var tabBtns=document.querySelectorAll('.tab-btn'), tabContents=document.querySelectorAll('.tab-content');
+
+        todayDateSpan.textContent = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+        var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+        function fm(sel){ sel.innerHTML='<option value="">Month</option>'; months.forEach(function(n,i){ var o=document.createElement('option'); o.value=i+1; o.textContent=n; sel.appendChild(o); }); }
+        function fd(sel,m){ sel.innerHTML='<option value="">Day</option>'; if(!m)return; var days=new Date(2024,m,0).getDate(); for(var d=1;d<=days;d++){ var o=document.createElement('option'); o.value=d; o.textContent=d; sel.appendChild(o); } }
+        fm(m1); fm(m2); fm(m3);
+        m1.onchange=function(){ fd(d1,parseInt(this.value)); d1.value=''; out1.style.display='none'; };
+        m2.onchange=function(){ fd(d2,parseInt(this.value)); d2.value=''; out2.style.display='none'; };
+        m3.onchange=function(){ fd(d3,parseInt(this.value)); d3.value=''; out3.style.display='none'; };
+        tabBtns.forEach(function(b){ b.addEventListener('click',function(){ tabBtns.forEach(function(x){x.classList.remove('active');}); tabContents.forEach(function(x){x.classList.remove('active');}); this.classList.add('active'); document.getElementById('tab-'+this.dataset.tab).classList.add('active'); }); });
+
+        function doy(d){ var s=new Date(d.getFullYear(),0,0); return Math.floor((d-s)/86400000); }
+        function cc(m,d){ return ((m*7+d*13)%31)+1; }
+        function gp(p,s,o){ o=o||0; return p[Math.abs(s+o)%p.length]; }
+        function sc(n,v,d){ var dt=new Date(); dt.setTime(dt.getTime()+(d*86400000)); document.cookie=n+"="+encodeURIComponent(JSON.stringify(v))+";expires="+dt.toUTCString()+";path=/;SameSite=Lax"; }
+        function gc(n){ var cn=n+"="; var ca=document.cookie.split(';'); for(var i=0;i<ca.length;i++){ var c=ca[i].trim(); if(c.indexOf(cn)===0){ try{return JSON.parse(c.substring(cn.length));}catch(e){return null;} } } return null; }
+        function br(m,d,td){ var code=cc(m,d); var dy=td?doy(new Date(td)):doy(new Date()); var s=dy+code; return {code:code,fortune:gp(fortunes,s,0),luckyColor:gp(luckyColors,s,3),luckyNumber:gp(luckyNumbers,s,7),powerWord:gp(powerWords,s,11),moneyAdvice:gp(moneyAdvice,s,13),loveEnergy:gp(loveEnergies,s,17),avoid:gp(avoidToday,s,19),mood:gp(moodEnergies,s,23),targetDate:td}; }
+        function gt(m){ if(m.length<=40)return m; return m.substring(0,40).replace(/\s+\S*$/,''); }
+
+        // Ad helper - creates ad HTML with unique ID
+        var adCounter = 0;
+        function makeAd(key, h, w) {
+            var id = 'dynAd' + (adCounter++);
+            var html = '<div class="ad-box" id="' + id + '"></div>';
+            // Load after render
+            setTimeout(function() {
+                var el = document.getElementById(id);
+                if (!el) return;
+                var s1 = document.createElement('script');
+                s1.text = 'atOptions={key:"' + key + '",format:"iframe",height:' + h + ',width:' + w + ',params:{}};';
+                el.appendChild(s1);
+                var s2 = document.createElement('script');
+                s2.src = 'https://www.highperformanceformat.com/' + key + '/invoke.js';
+                el.appendChild(s2);
+            }, 100);
+            return html;
+        }
+
+        function renderOutput(r, isFuture, isPast) {
+            var badge = '';
+            if (isFuture) badge = '<p style="text-align:center;color:#e8c955;">🔮 Preview for ' + new Date(r.targetDate).toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' }) + '</p>';
+            if (isPast) badge = '<p style="text-align:center;color:#e8c955;">📅 Looking back at ' + new Date(r.targetDate).toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' }) + '</p>';
+            var tease = gt(r.avoid);
+            var h = '<p style="text-align:center;font-size:0.6rem;color:#a8a590;">YOUR MANIFEST CODE</p><p class="code-number">' + r.code + '</p>' + badge;
+            h += '<div class="card"><span>🔮</span><div><div class="card-label">Manifestation</div><div>"' + r.fortune + '"</div></div></div>';
+            h += '<div class="card"><span>🎨</span><div><div class="card-label">Lucky Color</div><div style="color:#e8c955;font-size:1.1rem;">' + r.luckyColor + '</div></div></div>';
+            h += '<div class="card"><span>🔢</span><div><div class="card-label">Lucky Number</div><div style="color:#e8c955;font-size:1.1rem;">' + r.luckyNumber + '</div></div></div>';
+            // SLOT 3 - Mid Results (300x250)
+            h += makeAd('d0c9c9acd858b3c82dced3a82afdef92', 250, 300);
+            h += '<div class="card"><span>⚡</span><div><div class="card-label">Power Word</div><div style="color:#e8c955;font-size:1.1rem;">' + r.powerWord + '</div></div></div>';
+            h += '<div class="card"><span>💡</span><div><div class="card-label">Money Advice</div><div>' + r.moneyAdvice + '</div></div></div>';
+            h += '<div class="card"><span>❤️</span><div><div class="card-label">Love Energy</div><div>' + r.loveEnergy + '</div></div></div>';
+            // Avoid
+            h += '<div class="avoid-card"><span>⚠️</span><div><div class="card-label" style="color:#c97a7a;">Avoid Today</div><div class="avoid-tease">' + tease + '</div><div class="avoid-full">' + r.avoid + '</div><div class="tap-prompt">👆 Tap to read more</div><div class="avoid-ad">';
+            // SLOT 5 - Avoid Top (300x250)
+            h += makeAd('d0c9c9acd858b3c82dced3a82afdef92', 250, 300);
+            // SLOT 6 - Avoid Bottom (Monetag)
+            h += '<div class="ad-box"><a href="https://omg10.com/4/11348801" target="_blank" style="color:#d4af37;text-decoration:none;">✦ Sponsored</a></div>';
+            h += '</div></div></div>';
+            h += '<div class="card"><span>🌙</span><div><div class="card-label">Mood Energy</div><div>' + r.mood + '</div></div></div>';
+            // SLOT 4 - Result Bottom (320x50)
+            h += makeAd('12e069811ed7ffd8ff7d69bea2f7effd', 50, 320);
+            h += '<div class="share-section"><button class="btn-share share-copy">📋 Share</button> <button class="btn-share fb share-fb">📘 Facebook</button></div>';
+            return h;
+        }
+
+        function attachAvoid(out) { var card = out.querySelector('.avoid-card'); if (!card) return; card.onclick = function() { this.classList.toggle('expanded'); }; }
+        function st() { toast.classList.add('show'); setTimeout(function() { toast.classList.remove('show'); }, 2000); }
+
+        function loadStaticAd(id, key, h, w) {
+            var el = document.getElementById(id); if (!el) return;
+            var s1 = document.createElement('script');
+            s1.text = 'atOptions={key:"' + key + '",format:"iframe",height:' + h + ',width:' + w + ',params:{}};';
+            el.appendChild(s1);
+            var s2 = document.createElement('script');
+            s2.src = 'https://www.highperformanceformat.com/' + key + '/invoke.js';
+            el.appendChild(s2);
+        }
+
+        // TODAY
+        btn1.onclick = function() {
+            var m=parseInt(m1.value), d=parseInt(d1.value);
+            if(!m||!d){alert('Select month and day.');return;}
+            var r=br(m,d,null);
+            out1.innerHTML = renderOutput(r,false,false);
+            out1.style.display='block'; out1.scrollIntoView({behavior:'smooth',block:'center'});
+            attachAvoid(out1);
+            out1.querySelector('.share-copy').onclick=function(){var u=new URL(window.location.href);u.searchParams.set('m',m);u.searchParams.set('d',d);navigator.clipboard.writeText('✨ My Manifest: '+u.toString()).then(st);};
+            out1.querySelector('.share-fb').onclick=function(){var u=new URL(window.location.href);u.searchParams.set('m',m);u.searchParams.set('d',d);window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u.toString()),'_blank','width=626,height=436');};
+        };
+
+        // PAST
+        btn2.onclick = function() {
+            var m=parseInt(m2.value), d=parseInt(d2.value), pds=pastDate.value;
+            if(!m||!d){alert('Enter birth date first.');return;}
+            if(!pds){alert('Select a past date.');return;}
+            var pd=new Date(pds+'T00:00:00'), td=new Date(); td.setHours(0,0,0,0);
+            if(pd>=td){alert('Select a date in the past.');return;}
+            var ck='mmp_'+m+'_'+d+'_'+pds;
+            var ref=gc(ck);
+            if(!ref){var code=cc(m,d),dy=doy(new Date(pds)),s=dy+code;ref={text:gp(pastReflections,s,0),lesson:gp(pastReflections,s,3),date:pds};sc(ck,ref,365);}
+            out2.innerHTML = '<p>🕰️ '+new Date(ref.date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})+'</p><p>"'+ref.text+'"</p><div class="ad-box"><a href="https://omg10.com/4/11348802" target="_blank" style="color:#d4af37;text-decoration:none;">✦ Sponsored</a></div><p style="color:#e8c955;">🌟 "'+ref.lesson+'"</p><div class="share-section"><button class="btn-share share-copy">📋 Share</button> <button class="btn-share fb share-fb">📘 Facebook</button></div>';
+            out2.style.display='block'; out2.scrollIntoView({behavior:'smooth',block:'center'});
+            out2.querySelector('.share-copy').onclick=function(){var u=new URL(window.location.href);u.searchParams.set('m',m);u.searchParams.set('d',d);navigator.clipboard.writeText('✨ My Manifest past: '+u.toString()).then(st);};
+            out2.querySelector('.share-fb').onclick=function(){var u=new URL(window.location.href);u.searchParams.set('m',m);u.searchParams.set('d',d);window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u.toString()),'_blank','width=626,height=436');};
+        };
+
+        // FUTURE
+        btn3.onclick = function() {
+            var m=parseInt(m3.value), d=parseInt(d3.value), fds=futureDate.value;
+            if(!m||!d){alert('Enter birth date first.');return;}
+            if(!fds){alert('Select a future date.');return;}
+            var fd=new Date(fds+'T00:00:00'), td=new Date(); td.setHours(0,0,0,0);
+            if(fd<=td){alert('Select a date in the future.');return;}
+            var ck='mmf_'+m+'_'+d+'_'+fds;
+            var r=gc(ck); if(!r){r=br(m,d,fds);sc(ck,r,365);}
+            r.targetDate=fds;
+            out3.innerHTML = renderOutput(r,true,false);
+            out3.style.display='block'; out3.scrollIntoView({behavior:'smooth',block:'center'});
+            attachAvoid(out3);
+            out3.querySelector('.share-copy').onclick=function(){var u=new URL(window.location.href);u.searchParams.set('m',m);u.searchParams.set('d',d);navigator.clipboard.writeText('✨ My Manifest preview: '+u.toString()).then(st);};
+            out3.querySelector('.share-fb').onclick=function(){var u=new URL(window.location.href);u.searchParams.set('m',m);u.searchParams.set('d',d);window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u.toString()),'_blank','width=626,height=436');};
+        };
+
+        // Static ads
+        loadStaticAd('adSlot1', '12e069811ed7ffd8ff7d69bea2f7effd', 50, 320);
+        loadStaticAd('adSlot8', '7578dbd533c282012a2bc8f3d852095a', 60, 468);
+
+        // Popunder
+        var ps = document.createElement('script'); ps.async=true; ps.src='https://pl30451182.effectivecpmnetwork.com/0d68f94a55563695b6cbc32ea85b552b/invoke.js'; document.body.appendChild(ps);
+    })();
+    </script>
+</body>
+</html>
