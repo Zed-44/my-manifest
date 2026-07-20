@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Manifest — Manifest Your Day</title>
+    <meta name="description" content="✦ See what's manifesting for you today. Your lucky color and number inside.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="💰 My Manifest — What's Your Code?">
+    <meta property="og:description" content="✦ See what's manifesting for you today. Your lucky color and number inside.">
+    <meta property="og:url" content="" id="ogUrl">
+    <meta property="og:image" content="https://zed-44.github.io/my-manifest/og-image.png" id="ogImage">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="My Manifest">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="💰 My Manifest — What's Your Code?">
+    <meta name="twitter:description" content="✦ See what's manifesting for you today. Your lucky color and number inside.">
+    <meta name="twitter:image" content="https://zed-44.github.io/my-manifest/og-image.png" id="twitterImage">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a1a0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="My Manifest">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='192' height='192' viewBox='0 0 192 192'><rect width='192' height='192' fill='%230a1a0f'/><text x='96' y='72' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-weight='400' fill='%23d4af37'>My</text><text x='96' y='130' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-weight='400' fill='%23d4af37'>Manifest</text></svg>">
+
+    <!-- Inline OG Tag Generator -->
+    <script>
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        var m = parseInt(params.get('m'));
+        var d = parseInt(params.get('d'));
+        if (m && d && m >= 1 && m <= 12 && d >= 1 && d <= 31) {
+            var code = ((m * 7 + d * 13) % 31) + 1;
+            document.title = "My Manifest — Code " + code;
+            var imageUrl = "https://zed-44.github.io/my-manifest/og-image.png";
+            var ogTitle = document.querySelector('meta[property="og:title"]');
+            var ogDesc = document.querySelector('meta[property="og:description"]');
+            var ogImage = document.querySelector('meta[property="og:image"]');
+            var twitterTitle = document.querySelector('meta[name="twitter:title"]');
+            var twitterDesc = document.querySelector('meta[name="twitter:description"]');
+            var twitterImage = document.querySelector('meta[name="twitter:image"]');
+            if (ogTitle) ogTitle.setAttribute('content', "💰 My Manifest Code: " + code + " — What's Yours?");
+            if (ogDesc) ogDesc.setAttribute('content', "✦ My lucky number and color today. Code: " + code + ". See what's manifesting for you.");
+            if (ogImage) ogImage.setAttribute('content', imageUrl);
+            if (twitterTitle) twitterTitle.setAttribute('content', "💰 My Manifest Code: " + code + " — What's Yours?");
+            if (twitterDesc) twitterDesc.setAttribute('content', "✦ My lucky number and color today. Code: " + code + ". See what's manifesting for you.");
+            if (twitterImage) twitterImage.setAttribute('content', imageUrl);
+        }
+    })();
+    </script>
+
+    <style>
+        :root {
+            --bg-deep: #0a1a0f;
+            --bg-card: rgba(10, 26, 15, 0.85);
+            --gold: #d4af37;
+            --gold-light: #e8c955;
+            --text: #e8e5dc;
+            --text-muted: #a8a590;
+            --danger: #c97a7a;
+            --danger-bg: rgba(201, 122, 122, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 30% 10%, rgba(212, 175, 55, 0.06) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 85%, rgba(26, 58, 37, 0.4) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 50%, rgba(10, 26, 15, 0.9) 0%, #0a1a0f 100%);
+            background-attachment: fixed;
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0.5rem 1rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .ad-top-banner {
+            max-width: 480px;
+            width: 100%;
+            margin: 0 auto 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.6rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            font-family: 'Georgia', serif;
+        }
+        .container {
+            max-width: 480px;
+            width: 100%;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            padding: 1.8rem 1.5rem 1.5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 0.5rem;
+        }
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+            opacity: 0.9;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.2rem;
+            color: var(--text);
+            line-height: 1.2;
+        }
+        h1 span { color: var(--gold); }
+        .subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+        .today-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 2rem;
+            padding: 0.25rem 1rem;
+            font-size: 0.7rem;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+        }
+        .section-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            opacity: 0.7;
+            margin-bottom: 0.4rem;
+        }
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        select {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--text);
+            padding: 0.7rem 1rem;
+            border-radius: 0.8rem;
+            font-size: 0.9rem;
+            font-family: 'Georgia', serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%23d4af37' d='M5 7L1 3h8z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            padding-right: 2rem;
+            min-width: 95px;
+        }
+        select:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+        .btn {
+            font-family: 'Georgia', serif;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), #b8942e);
+            color: #0a1a0f;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+            font-weight: 700;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        }
+        .btn-primary:active { transform: scale(0.96); }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+        }
+        .btn-outline:hover { background: rgba(212, 175, 55, 0.1); }
+        .tab-row {
+            display: flex;
+            gap: 0.3rem;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            font-family: 'Georgia', serif;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 0.45rem 0.9rem;
+            border-radius: 1.5rem;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+        .tab-btn.active {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .tab-btn:hover { border-color: var(--gold); color: var(--text); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .future-input-group, .past-input-group {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        .future-input-group input[type="date"], .past-input-group input[type="date"] {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--text);
+            padding: 0.65rem 1rem;
+            border-radius: 0.8rem;
+            font-size: 0.85rem;
+            font-family: 'Georgia', serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .future-input-group input[type="date"]:hover, .past-input-group input[type="date"]:hover { border-color: var(--gold); }
+        .future-input-group input[type="date"]::-webkit-calendar-picker-indicator,
+        .past-input-group input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.8) sepia(1) saturate(5) hue-rotate(10deg);
+            cursor: pointer;
+        }
+        .output {
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+            margin-top: 1rem;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .code-display { text-align: center; margin-bottom: 1rem; }
+        .code-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+        .code-number {
+            font-family: 'Georgia', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--gold);
+            line-height: 1;
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+        }
+        .result-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px dashed rgba(212, 175, 55, 0.4);
+            border-radius: 1.5rem;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.65rem;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            margin-top: 0.3rem;
+        }
+        .reading-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 0.8rem 0;
+        }
+        .reading-card {
+            background: rgba(255, 255, 255, 0.025);
+            border-radius: 0.9rem;
+            padding: 0.7rem 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            transition: all 0.3s;
+        }
+        .reading-card:hover { background: rgba(255, 255, 255, 0.05); }
+        .card-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; opacity: 0.8; }
+        .card-content { flex: 1; min-width: 0; }
+        .card-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            opacity: 0.7;
+            margin-bottom: 0.1rem;
+        }
+        .card-value {
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--text);
+            word-wrap: break-word;
+        }
+        .card-value.large { font-size: 1.1rem; color: var(--gold-light); }
+        .card-avoid {
+            border-left: 3px solid var(--danger);
+            background: var(--danger-bg);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .card-avoid .card-label { color: var(--danger); }
+        .card-avoid .avoid-tease { color: var(--text); opacity: 0.8; font-style: italic; }
+        .card-avoid .avoid-tease::after { content: '...'; color: var(--danger); font-weight: bold; }
+        .card-avoid .avoid-full { display: none; }
+        .card-avoid.expanded .avoid-tease { display: none; }
+        .card-avoid.expanded .avoid-full { display: inline; }
+        .card-avoid .tap-prompt {
+            font-size: 0.6rem;
+            color: var(--danger);
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 0.3rem;
+            opacity: 0.8;
+        }
+        .card-avoid.expanded .tap-prompt { display: none; }
+        .card-avoid .tap-close {
+            display: none;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 0.3rem;
+            opacity: 0.6;
+        }
+        .card-avoid.expanded .tap-close { display: block; }
+        .avoid-ad-slots {
+            display: none;
+            margin-top: 0.5rem;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .card-avoid.expanded .avoid-ad-slots { display: flex; }
+        .avoid-ad-slot {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.55rem;
+            letter-spacing: 1px;
+        }
+        .mid-ad-slot {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.7rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            margin: 0.3rem 0;
+        }
+        .share-section {
+            margin-top: 0.8rem;
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-share {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            padding: 0.55rem 1rem;
+            border-radius: 2rem;
+            font-weight: 400;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+        .btn-share:hover { background: rgba(212, 175, 55, 0.12); }
+        .btn-share.primary-share {
+            background: var(--gold);
+            color: #0a1a0f;
+            border: none;
+            font-weight: 700;
+        }
+        .btn-share.primary-share:hover { background: var(--gold-light); }
+        .ad-below-card {
+            max-width: 480px;
+            width: 100%;
+            margin: 0.5rem auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.7rem;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            font-family: 'Georgia', serif;
+        }
+        .past-reflection {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: left;
+            line-height: 1.6;
+            font-style: italic;
+            margin: 0.8rem 0;
+        }
+        .past-reflection .reflection-date {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+            font-style: normal;
+        }
+        .past-reflection .reflection-lesson {
+            margin-top: 0.8rem;
+            font-style: normal;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+        }
+        .past-ad-slot {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            margin: 0.5rem 0;
+        }
+        .bottom-actions {
+            max-width: 480px;
+            width: 100%;
+            margin: 0.5rem auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        .btn-install {
+            font-family: 'Georgia', serif;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-muted);
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            display: none;
+        }
+        .btn-install.visible { display: inline-block; }
+        .btn-install:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .ad-bottom {
+            max-width: 480px;
+            width: 100%;
+            margin: 0.5rem auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 0.7rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            font-family: 'Georgia', serif;
+        }
+        .footer-note {
+            margin-top: 0.3rem;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            letter-spacing: 0.5px;
+            opacity: 0.5;
+        }
+        .footer-note a { color: var(--gold); text-decoration: none; cursor: pointer; }
+        .footer-note a:hover { text-decoration: underline; }
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a3a25;
+            color: var(--gold-light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 400;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .toast.show { opacity: 1; }
+        @media (max-width: 400px) {
+            .container { padding: 1.3rem 0.9rem 1rem; border-radius: 1.2rem; }
+            h1 { font-size: 1.6rem; }
+            .code-number { font-size: 3.5rem; }
+            .input-group { gap: 0.3rem; }
+            select { padding: 0.6rem 0.5rem; font-size: 0.8rem; min-width: 80px; }
+            .btn { padding: 0.6rem 1rem; font-size: 0.75rem; }
+            .tab-btn { padding: 0.35rem 0.6rem; font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AD SLOT 1 — Top Banner (Adsterra 320x50) -->
+    <div class="ad-top-banner" id="adSlot1">
+        <script>
+            atOptions = { 'key': '12e069811ed7ffd8ff7d69bea2f7effd', 'format': 'iframe', 'height': 50, 'width': 320, 'params': {} };
+        </script>
+        <script src="https://www.highperformanceformat.com/12e069811ed7ffd8ff7d69bea2f7effd/invoke.js"></script>
+    </div>
+
+    <div class="container">
+        <div class="logo">My Manifest</div>
+        <h1>Manifest <span>Your Day</span></h1>
+        <p class="subtitle">One birth date. A new manifestation daily.</p>
+
+        <div class="today-badge">📅 <span id="todayDate"></span></div>
+
+        <!-- Tabs -->
+        <div class="tab-row">
+            <button class="tab-btn active" data-tab="today">✦ Today</button>
+            <button class="tab-btn" data-tab="past">📅 Past</button>
+            <button class="tab-btn" data-tab="future">🔮 Future</button>
+        </div>
+
+        <!-- TODAY TAB -->
+        <div class="tab-content active" id="tab-today">
+            <div class="section-label">Enter Your Birth Date</div>
+            <div class="input-group">
+                <select id="monthSelect" aria-label="Birth month"><option value="">Month</option></select>
+                <select id="daySelect" aria-label="Birth day"><option value="">Day</option></select>
+                <button class="btn btn-primary" id="revealBtn">Manifest ✦</button>
+            </div>
+            <div class="output" id="outputToday"></div>
+        </div>
+
+        <!-- PAST TAB -->
+        <div class="tab-content" id="tab-past">
+            <div class="section-label">Reflect on a Past Day</div>
+            <p style="font-size:0.7rem;color:var(--text-muted);margin-bottom:0.8rem;">Enter your birth date, then pick a past date to reflect on.</p>
+            <div class="input-group">
+                <select id="pastMonthSelect" aria-label="Birth month for past"><option value="">Month</option></select>
+                <select id="pastDaySelect" aria-label="Birth day for past"><option value="">Day</option></select>
+            </div>
+            <div class="past-input-group">
+                <input type="date" id="pastDateInput" aria-label="Past date picker">
+                <button class="btn btn-outline" id="pastBtn">Reflect ✦</button>
+            </div>
+            <div class="output" id="outputPast"></div>
+        </div>
+
+        <!-- FUTURE TAB -->
+        <div class="tab-content" id="tab-future">
+            <div class="section-label">Preview a Future Day</div>
+            <p style="font-size:0.7rem;color:var(--text-muted);margin-bottom:0.8rem;">Enter your birth date, then pick a future date to preview. Result is locked and won't change on revisit.</p>
+            <div class="input-group">
+                <select id="futureMonthSelect" aria-label="Birth month for future"><option value="">Month</option></select>
+                <select id="futureDaySelect" aria-label="Birth day for future"><option value="">Day</option></select>
+            </div>
+            <div class="future-input-group">
+                <input type="date" id="futureDateInput" aria-label="Future date picker">
+                <button class="btn btn-outline" id="futureBtn">Preview ✦</button>
+            </div>
+            <div class="output" id="outputFuture"></div>
+        </div>
+    </div>
+
+    <!-- AD SLOT 2 — Below Card (Smartlink) -->
+    <div class="ad-below-card" id="adSlot2"><a href="https://www.effectivecpmnetwork.com/napnvfb64?key=a0eebf0f133fc905b0bc755bcf2a3003" target="_blank" style="color:#d4af37;text-decoration:none;font-size:0.7rem;">✦ Sponsored</a></div>
+
+    <!-- Bottom Actions -->
+    <div class="bottom-actions">
+        <button class="btn-install" id="installBtn">📲 Install App</button>
+    </div>
+
+    <!-- AD SLOT 8 — Bottom (Adsterra 468x60) -->
+    <div class="ad-bottom" id="adSlot8">
+        <script>
+            atOptions = { 'key': '7578dbd533c282012a2bc8f3d852095a', 'format': 'iframe', 'height': 60, 'width': 468, 'params': {} };
+        </script>
+        <script src="https://www.highperformanceformat.com/7578dbd533c282012a2bc8f3d852095a/invoke.js"></script>
+    </div>
+
+    <p class="footer-note">✦ Manifestation changes daily. Your code is forever. <a id="resetLink">Start fresh</a></p>
+
+    <div class="toast" id="toast">📋 Link copied! Share it with friends.</div>
+
+    <script>
+    (function() {
+        // ============ FORTUNE POOLS ============
+        var fortunes = ["A golden opportunity whispers your name today — listen closely.","Unexpected abundance flows from a direction you least expect.","Your generosity plants seeds for a future harvest.","A calculated risk may open a treasure chest. Trust your instincts.","Financial wisdom you've ignored will now shine brightly.","Someone from your past holds the key to a prosperous idea.","The number 8 appears wherever money moves — watch for it.","Today, patience is your greatest investment. Let things mature.","A small habit change today compounds into future riches.","Your creativity is the real gold mine. Mine it.","An obstacle is actually a hidden stepping stone to abundance.","Luck dances with those who are prepared. Get ready.","Money follows meaning. Align your work with your values.","A conversation over coffee could lead to your next big break.","The wealth you seek is already within your circle — look around.","Let go of a scarcity thought; it's blocking your flow.","Today's fortune lies in collaboration, not competition.","You are a magnet for resources when you radiate gratitude.","A forgotten skill may become a lucrative side path.","The universe rewards bold, kind action. Take one today."];
+        var luckyColors = ["Emerald Green","Burnished Gold","Deep Crimson","Ocean Blue","Amethyst","Burnt Orange","Silver Mist","Ivory Cream","Onyx Black","Rose Blush","Teal Depths","Copper Bronze","Lavender Haze","Ruby Red","Sapphire","Jade Stone","Topaz Yellow","Coral Reef","Charcoal","Champagne","Turquoise","Magenta","Soft Peach","Mint Green","Burgundy Wine","Aquamarine","Amber Glow","Lilac","Olive Branch","Cream"];
+        var luckyNumbers = ["03","07","11","14","18","21","25","29","32","36","41","44","48","52","55","59","63","66","70","74","77","81","85","88","92","96","99","02","06","10"];
+        var powerWords = ["BOUNDARIES","FOCUS","GRATITUDE","ACTION","PATIENCE","COURAGE","FLOW","DISCIPLINE","TRUST","RELEASE","RISE","ALIGN","SERVE","CREATE","RECEIVE","INVEST","SIMPLIFY","CONNECT","SPEAK","REST","LEAP","NOURISH","SHINE","BUILD","FORGIVE","OBSERVE","DECLUTTER","CELEBRATE","LEARN","GIVE"];
+        var moneyAdvice = ["Check that subscription you forgot about — you might be leaking money.","Today is perfect to review your budget with fresh eyes.","An old skill of yours is worth money online. Research it.","Cook at home today. The savings are a form of self-respect.","Negotiate one bill today. A simple call can save hundreds yearly.","Sell one item you haven't used in 6 months. Declutter = cash.","Invest in knowledge before gadgets. Books pay dividends.","Automate your savings. What you don't see, you don't spend.","Track every expense today. Awareness is the first step to wealth.","Unfollow accounts that make you spend impulsively. Peace is free."];
+        var loveEnergies = ["Your warmth attracts the right kind of attention today. Stay open.","A small gesture of kindness sparks something deeper.","Someone is noticing your energy from afar. Let your light shine.","Love arrives in unexpected forms today.","Your heart knows what it wants. Trust its quiet whisper.","A meaningful connection deepens when you speak your truth.","Self-love radiates outward and draws others near.","A past love taught you something valuable.","Romantic energy surrounds you. Be present.","The right person sees your quirks as treasures."];
+        var avoidToday = ["Impulse purchases — sleep on it first before clicking buy.","Lending money to someone who hasn't repaid you before.","Overcommitting your time. A polite 'no' protects your peace and wallet.","Gossip disguised as concern. Walk away — it drains your energy.","Comparing your journey to others on social media.","Signing contracts without reading the fine print.","Arguments over small amounts of money.","Sharing your big ideas with people who consistently dim your light.","Skipping meals to save money — your health is your greatest wealth asset.","That 'limited time offer' that pressures you to decide immediately.","People who only reach out when they need something.","Starting a new financial commitment before clearing an old one.","Overthinking a past mistake. Today's slate is clean and fresh.","Letting pride stop you from asking for help or advice.","Mixing friendship and money without clear boundaries.","Checking your bank account obsessively.","Taking financial advice from someone whose results you wouldn't want.","Investing in something complex you don't fully understand.","The urge to 'keep up' with someone else's lifestyle.","Making big decisions when you're hungry, angry, lonely, or tired."];
+        var moodEnergies = ["Calm confidence attracts abundance today.","A quiet excitement bubbles beneath the surface.","Grounded and magnetic — people feel your presence.","Playful curiosity opens unexpected doors.","Deep inner peace radiates like a wealth signal.","Focused determination cuts through distractions.","Gentle receptivity — allow, don't chase.","Bold courage to take the next step.","Serene trust that all is unfolding perfectly.","Vibrant creativity sparking new ideas.","Steady patience — the tortoise wins this race.","Joyful anticipation of good things arriving.","Quiet power — speak less, attract more.","Warm gratitude softening every interaction.","Clear vision — you see through illusions today.","Resilient strength from lessons learned.","Open-hearted generosity lifting your frequency.","Playful mischief — don't take money too seriously.","Deep listening — the answer is in the silence.","Radiant self-worth that needs no external proof."];
+        var pastReflections = ["That day carried a quiet opportunity. If you had taken a bold step, things would have unfolded in your favor.","Looking back, you were standing at a crossroads without realizing it.","A door was opening that day, but you may have been looking the other way.","The energy around that date was one of quiet preparation.","Someone was thinking of you that day. Their energy touched yours.","Financially, that day held a missed signal.","Emotionally, you were stronger than you knew.","A conversation that day planted a seed.","The universe was nudging you toward a different path.","That date vibrates with the energy of 'almost' — keep going.","Looking back with gentle eyes: you were healing.","A creative spark was lit that day.","The stars suggest a romantic possibility passed by unnoticed.","Professionally, you made a small move that built invisible momentum.","You were protected from something that day.","The energy of that day was 'pause.'","Someone observed your kindness that day.","A financial decision set off a chain reaction.","You were more magnetic than you realized.","A lesson was offered that day, wrapped in frustration."];
+
+        // ============ DOM ELEMENTS ============
+        var todayDateSpan = document.getElementById('todayDate');
+        var toast = document.getElementById('toast');
+        var resetLink = document.getElementById('resetLink');
+        var installBtn = document.getElementById('installBtn');
+        var monthSelect = document.getElementById('monthSelect');
+        var daySelect = document.getElementById('daySelect');
+        var revealBtn = document.getElementById('revealBtn');
+        var outputToday = document.getElementById('outputToday');
+        var pastMonthSelect = document.getElementById('pastMonthSelect');
+        var pastDaySelect = document.getElementById('pastDaySelect');
+        var pastDateInput = document.getElementById('pastDateInput');
+        var pastBtn = document.getElementById('pastBtn');
+        var outputPast = document.getElementById('outputPast');
+        var futureMonthSelect = document.getElementById('futureMonthSelect');
+        var futureDaySelect = document.getElementById('futureDaySelect');
+        var futureDateInput = document.getElementById('futureDateInput');
+        var futureBtn = document.getElementById('futureBtn');
+        var outputFuture = document.getElementById('outputFuture');
+        var tabBtns = document.querySelectorAll('.tab-btn');
+        var tabContents = document.querySelectorAll('.tab-content');
+
+        // ============ TODAY'S DATE ============
+        var today = new Date();
+        todayDateSpan.textContent = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        // ============ POPULATE MONTHS ============
+        var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+        function fillMonths(sel) {
+            sel.innerHTML = '<option value="">Month</option>';
+            monthNames.forEach(function(name, idx) {
+                var opt = document.createElement('option');
+                opt.value = idx + 1;
+                opt.textContent = name;
+                sel.appendChild(opt);
+            });
+        }
+
+        function fillDays(sel, month) {
+            sel.innerHTML = '<option value="">Day</option>';
+            if (!month) return;
+            var days = new Date(2024, month, 0).getDate();
+            for (var d = 1; d <= days; d++) {
+                var opt = document.createElement('option');
+                opt.value = d;
+                opt.textContent = d;
+                sel.appendChild(opt);
+            }
+        }
+
+        fillMonths(monthSelect);
+        fillMonths(pastMonthSelect);
+        fillMonths(futureMonthSelect);
+        fillDays(daySelect, null);
+        fillDays(pastDaySelect, null);
+        fillDays(futureDaySelect, null);
+
+        monthSelect.addEventListener('change', function() { fillDays(daySelect, parseInt(this.value)); daySelect.value = ''; outputToday.style.display = 'none'; });
+        pastMonthSelect.addEventListener('change', function() { fillDays(pastDaySelect, parseInt(this.value)); pastDaySelect.value = ''; outputPast.style.display = 'none'; });
+        futureMonthSelect.addEventListener('change', function() { fillDays(futureDaySelect, parseInt(this.value)); futureDaySelect.value = ''; outputFuture.style.display = 'none'; });
+
+        // ============ TABS ============
+        tabBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                tabBtns.forEach(function(b) { b.classList.remove('active'); });
+                tabContents.forEach(function(c) { c.classList.remove('active'); });
+                this.classList.add('active');
+                var target = document.getElementById('tab-' + this.dataset.tab);
+                if (target) target.classList.add('active');
+            });
+        });
+
+        // ============ HELPERS ============
+        function getDayOfYear(date) { var start = new Date(date.getFullYear(), 0, 0); return Math.floor((date - start) / 86400000); }
+        function computeCode(m, d) { return ((m * 7 + d * 13) % 31) + 1; }
+        function getFromPool(pool, seed, offset) { offset = offset || 0; return pool[Math.abs(seed + offset) % pool.length]; }
+        function setCookie(name, value, days) { var d = new Date(); d.setTime(d.getTime() + (days * 86400000)); document.cookie = name + "=" + encodeURIComponent(JSON.stringify(value)) + ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax"; }
+        function getCookie(name) { var cname = name + "="; var ca = document.cookie.split(';'); for (var i = 0; i < ca.length; i++) { var c = ca[i].trim(); if (c.indexOf(cname) === 0) { try { return JSON.parse(c.substring(cname.length)); } catch(e) { return null; } } } return null; }
+
+        function buildReading(month, day, targetDate) {
+            var code = computeCode(month, day);
+            var doy = targetDate ? getDayOfYear(new Date(targetDate)) : getDayOfYear(new Date());
+            var seed = doy + code;
+            return {
+                code: code,
+                fortune: getFromPool(fortunes, seed, 0),
+                luckyColor: getFromPool(luckyColors, seed, 3),
+                luckyNumber: getFromPool(luckyNumbers, seed, 7),
+                powerWord: getFromPool(powerWords, seed, 11),
+                moneyAdvice: getFromPool(moneyAdvice, seed, 13),
+                loveEnergy: getFromPool(loveEnergies, seed, 17),
+                avoid: getFromPool(avoidToday, seed, 19),
+                mood: getFromPool(moodEnergies, seed, 23),
+                targetDate: targetDate
+            };
+        }
+
+        function getAvoidTease(msg) { if (msg.length <= 40) return msg; return msg.substring(0, 40).replace(/\s+\S*$/, ''); }
+
+        function renderReadingOutput(r, isFuture, isPast) {
+            var badgeText = '';
+            var badgeDisplay = 'none';
+            if (isFuture) { badgeText = '🔮 Preview for ' + new Date(r.targetDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }); badgeDisplay = 'inline-block'; }
+            if (isPast) { badgeText = '📅 Looking back at ' + new Date(r.targetDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }); badgeDisplay = 'inline-block'; }
+            var tease = getAvoidTease(r.avoid);
+            var html = '<div class="code-display"><div class="code-label">Your Manifest Code</div><div class="code-number">' + r.code + '</div><div class="result-badge" style="display:' + badgeDisplay + ';">' + badgeText + '</div></div>';
+            html += '<div class="reading-grid">';
+            html += '<div class="reading-card"><div class="card-icon">🔮</div><div class="card-content"><div class="card-label">Today\'s Manifestation</div><div class="card-value">"' + r.fortune + '"</div></div></div>';
+            html += '<div class="reading-card"><div class="card-icon">🎨</div><div class="card-content"><div class="card-label">Lucky Color</div><div class="card-value large">' + r.luckyColor + '</div></div></div>';
+            html += '<div class="reading-card"><div class="card-icon">🔢</div><div class="card-content"><div class="card-label">Lucky Number</div><div class="card-value large">' + r.luckyNumber + '</div></div></div>';
+            // AD SLOT 3 — Mid Results (Adsterra 300x250)
+            html += '<div class="mid-ad-slot"><script>atOptions={key:"d0c9c9acd858b3c82dced3a82afdef92",format:"iframe",height:250,width:300,params:{}};</script><script src="https://www.highperformanceformat.com/d0c9c9acd858b3c82dced3a82afdef92/invoke.js"></script></div>';
+            html += '<div class="reading-card"><div class="card-icon">⚡</div><div class="card-content"><div class="card-label">Power Word</div><div class="card-value large">' + r.powerWord + '</div></div></div>';
+            html += '<div class="reading-card"><div class="card-icon">💡</div><div class="card-content"><div class="card-label">Money Advice</div><div class="card-value">' + r.moneyAdvice + '</div></div></div>';
+            html += '<div class="reading-card"><div class="card-icon">❤️</div><div class="card-content"><div class="card-label">Love Energy</div><div class="card-value">' + r.loveEnergy + '</div></div></div>';
+            // Avoid Card
+            html += '<div class="reading-card card-avoid"><div class="card-icon">⚠️</div><div class="card-content"><div class="card-label">Avoid Today</div><div class="card-value avoid-tease">' + tease + '</div><div class="card-value avoid-full" style="display:none;">' + r.avoid + '</div><div class="tap-prompt">👆 Tap to read more</div><div class="tap-close" style="display:none;">▲ Tap to close</div><div class="avoid-ad-slots" style="display:none;">';
+            // AD SLOT 5 — Avoid Top (Adsterra 300x250)
+            html += '<div class="avoid-ad-slot"><script>atOptions={key:"d0c9c9acd858b3c82dced3a82afdef92",format:"iframe",height:250,width:300,params:{}};</script><script src="https://www.highperformanceformat.com/d0c9c9acd858b3c82dced3a82afdef92/invoke.js"></script></div>';
+            // AD SLOT 6 — Avoid Bottom (Monetag)
+            html += '<div class="avoid-ad-slot"><a href="https://omg10.com/4/11348801" target="_blank" style="color:#d4af37;text-decoration:none;font-size:0.7rem;">✦ Sponsored</a></div>';
+            html += '</div></div></div>';
+            html += '<div class="reading-card"><div class="card-icon">🌙</div><div class="card-content"><div class="card-label">Mood Energy</div><div class="card-value">' + r.mood + '</div></div></div>';
+            html += '</div>';
+            // AD SLOT 4 — Bottom of Result (Adsterra 320x50)
+            html += '<div class="mid-ad-slot"><script>atOptions={key:"12e069811ed7ffd8ff7d69bea2f7effd",format:"iframe",height:50,width:320,params:{}};</script><script src="https://www.highperformanceformat.com/12e069811ed7ffd8ff7d69bea2f7effd/invoke.js"></script></div>';
+            html += '<div class="share-section"><button class="btn-share primary-share share-copy-btn">📋 Share Link</button><button class="btn-share share-fb-btn">📘 Facebook</button></div>';
+            return html;
+        }
+
+        function attachAvoid(container) {
+            var card = container.querySelector('.card-avoid');
+            if (!card) return;
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('.avoid-ad-slot')) return;
+                if (this.classList.contains('expanded')) {
+                    this.classList.remove('expanded');
+                    this.querySelector('.avoid-full').style.display = 'none';
+                    this.querySelector('.avoid-ad-slots').style.display = 'none';
+                    this.querySelector('.tap-close').style.display = 'none';
+                    this.querySelector('.tap-prompt').style.display = 'block';
+                } else {
+                    this.classList.add('expanded');
+                    this.querySelector('.avoid-full').style.display = 'inline';
+                    this.querySelector('.avoid-ad-slots').style.display = 'flex';
+                    this.querySelector('.tap-close').style.display = 'block';
+                    this.querySelector('.tap-prompt').style.display = 'none';
+                }
+            });
+        }
+
+        function attachShares(container, month, day) {
+            var copyBtn = container.querySelector('.share-copy-btn');
+            var fbBtn = container.querySelector('.share-fb-btn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    var url = new URL(window.location.href);
+                    url.searchParams.set('m', month); url.searchParams.set('d', day);
+                    var text = '✨ My Manifest reading today. See yours: ' + url.toString();
+                    navigator.clipboard.writeText(text).then(function() {
+                        toast.classList.add('show');
+                        setTimeout(function() { toast.classList.remove('show'); }, 2500);
+                    }).catch(function() {
+                        var ta = document.createElement('textarea'); ta.value = text;
+                        document.body.appendChild(ta); ta.select();
+                        document.execCommand('copy'); document.body.removeChild(ta);
+                        toast.classList.add('show');
+                        setTimeout(function() { toast.classList.remove('show'); }, 2500);
+                    });
+                });
+            }
+            if (fbBtn) {
+                fbBtn.addEventListener('click', function() {
+                    var url = new URL(window.location.href);
+                    url.searchParams.set('m', month); url.searchParams.set('d', day);
+                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url.toString()), '_blank', 'width=626,height=436');
+                });
+            }
+        }
+
+        // ============ TODAY ============
+        revealBtn.addEventListener('click', function() {
+            var m = parseInt(monthSelect.value), d = parseInt(daySelect.value);
+            if (!m || !d) { alert('Please select both your birth month and day.'); return; }
+            var reading = buildReading(m, d, null);
+            outputToday.innerHTML = renderReadingOutput(reading, false, false);
+            outputToday.style.display = 'block';
+            outputToday.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            attachAvoid(outputToday);
+            attachShares(outputToday, m, d);
+        });
+
+        // ============ FUTURE ============
+        futureBtn.addEventListener('click', function() {
+            var m = parseInt(futureMonthSelect.value), d = parseInt(futureDaySelect.value), fds = futureDateInput.value;
+            if (!m || !d) { alert('Please enter your birth date first.'); return; }
+            if (!fds) { alert('Please select a future date.'); return; }
+            var fd = new Date(fds + 'T00:00:00'), td = new Date(); td.setHours(0,0,0,0);
+            if (fd <= td) { alert('Please select a date in the future.'); return; }
+            var ck = 'mm_future_' + m + '_' + d + '_' + fds;
+            var reading = getCookie(ck);
+            if (!reading) { reading = buildReading(m, d, fds); setCookie(ck, reading, 365); }
+            reading.targetDate = fds;
+            outputFuture.innerHTML = renderReadingOutput(reading, true, false);
+            outputFuture.style.display = 'block';
+            outputFuture.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            attachAvoid(outputFuture);
+            attachShares(outputFuture, m, d);
+        });
+
+        // ============ PAST ============
+        pastBtn.addEventListener('click', function() {
+            var m = parseInt(pastMonthSelect.value), d = parseInt(pastDaySelect.value), pds = pastDateInput.value;
+            if (!m || !d) { alert('Please enter your birth date first.'); return; }
+            if (!pds) { alert('Please select a past date.'); return; }
+            var pd = new Date(pds + 'T00:00:00'), td = new Date(); td.setHours(0,0,0,0);
+            if (pd >= td) { alert('Please select a date in the past.'); return; }
+            var ck = 'mm_past_' + m + '_' + d + '_' + pds;
+            var reflection = getCookie(ck);
+            if (!reflection) {
+                var code = computeCode(m, d), doy = getDayOfYear(new Date(pds)), seed = doy + code;
+                reflection = { text: getFromPool(pastReflections, seed, 0), lesson: getFromPool(pastReflections, seed, 10), date: pds };
+                setCookie(ck, reflection, 365);
+            }
+            var pastHtml = '<div class="past-reflection"><div class="reflection-date">🕰️ Looking Back at ' + new Date(reflection.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + '</div><p>"' + reflection.text + '"</p>';
+            // AD SLOT 7 — Past Top (Monetag)
+            pastHtml += '<div class="past-ad-slot"><a href="https://omg10.com/4/11348802" target="_blank" style="color:#d4af37;text-decoration:none;font-size:0.7rem;">✦ Sponsored</a></div>';
+            pastHtml += '<p class="reflection-lesson">🌟 A lesson for today: "' + reflection.lesson + '"</p></div>';
+            pastHtml += '<div class="share-section"><button class="btn-share primary-share past-share-copy-btn">📋 Share Link</button><button class="btn-share past-share-fb-btn">📘 Facebook</button></div>';
+            outputPast.innerHTML = pastHtml;
+            outputPast.style.display = 'block';
+            outputPast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            var copyBtn = outputPast.querySelector('.past-share-copy-btn');
+            var fbBtn = outputPast.querySelector('.past-share-fb-btn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    var url = new URL(window.location.href);
+                    url.searchParams.set('m', m); url.searchParams.set('d', d);
+                    var text = '✨ My Manifest past reflection. See yours: ' + url.toString();
+                    navigator.clipboard.writeText(text).then(function() { toast.classList.add('show'); setTimeout(function() { toast.classList.remove('show'); }, 2500); });
+                });
+            }
+            if (fbBtn) {
+                fbBtn.addEventListener('click', function() {
+                    var url = new URL(window.location.href);
+                    url.searchParams.set('m', m); url.searchParams.set('d', d);
+                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url.toString()), '_blank', 'width=626,height=436');
+                });
+            }
+        });
+
+        // ============ RESET ============
+        resetLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            monthSelect.value = ''; fillDays(daySelect, null);
+            pastMonthSelect.value = ''; fillDays(pastDaySelect, null); pastDateInput.value = '';
+            futureMonthSelect.value = ''; fillDays(futureDaySelect, null); futureDateInput.value = '';
+            outputToday.style.display = 'none'; outputPast.style.display = 'none'; outputFuture.style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ============ PWA ============
+        var deferredPrompt;
+        window.addEventListener('beforeinstallprompt', function(e) { e.preventDefault(); deferredPrompt = e; installBtn.classList.add('visible'); });
+        installBtn.addEventListener('click', async function() { if (!deferredPrompt) return; deferredPrompt.prompt(); var result = await deferredPrompt.userChoice; if (result.outcome === 'accepted') installBtn.classList.remove('visible'); deferredPrompt = null; });
+        window.addEventListener('appinstalled', function() { installBtn.classList.remove('visible'); deferredPrompt = null; });
+
+        // ============ URL PRE-FILL ============
+        var params = new URLSearchParams(window.location.search);
+        var um = params.get('m'), ud = params.get('d');
+        if (um && ud && !isNaN(um) && !isNaN(ud)) {
+            var m = parseInt(um), d = parseInt(ud);
+            if (m >= 1 && m <= 12) {
+                monthSelect.value = m; fillDays(daySelect, m); daySelect.value = d;
+                tabBtns.forEach(function(b) { b.classList.remove('active'); if (b.dataset.tab === 'today') b.classList.add('active'); });
+                tabContents.forEach(function(c) { c.classList.remove('active'); if (c.id === 'tab-today') c.classList.add('active'); });
+                setTimeout(function() { revealBtn.click(); }, 300);
+            }
+        }
+
+        if ('serviceWorker' in navigator) { window.addEventListener('load', function() { navigator.serviceWorker.register('sw.js').catch(function() {}); }); }
+    })();
+    </script>
+
+    <!-- Adsterra Popunder -->
+    <script async="async" data-cfasync="false" src="https://pl30451182.effectivecpmnetwork.com/0d68f94a55563695b6cbc32ea85b552b/invoke.js"></script>
+    <div id="container-0d68f94a55563695b6cbc32ea85b552b"></div>
+
+</body>
+</html>
