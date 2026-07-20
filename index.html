@@ -144,20 +144,23 @@
 
         // Ad helper - creates ad HTML with unique ID
         var adCounter = 0;
-        function makeAd(key, h, w) {
+                function makeAd(key, h, w) {
             var id = 'dynAd' + (adCounter++);
-            var html = '<div class="ad-box" id="' + id + '"></div>';
-            // Load after render
+            var html = '<div class="ad-box" id="' + id + '"><span style="color:#a8a590;font-size:0.6rem;">Loading...</span></div>';
             setTimeout(function() {
                 var el = document.getElementById(id);
                 if (!el) return;
-                var s1 = document.createElement('script');
-                s1.text = 'atOptions={key:"' + key + '",format:"iframe",height:' + h + ',width:' + w + ',params:{}};';
-                el.appendChild(s1);
-                var s2 = document.createElement('script');
-                s2.src = 'https://www.highperformanceformat.com/' + key + '/invoke.js';
-                el.appendChild(s2);
-            }, 100);
+                el.innerHTML = '';
+                var iframe = document.createElement('iframe');
+                iframe.setAttribute('data-key', key);
+                iframe.style.border = 'none';
+                iframe.style.width = w + 'px';
+                iframe.style.height = h + 'px';
+                iframe.style.maxWidth = '100%';
+                iframe.scrolling = 'no';
+                iframe.src = 'https://www.highperformanceformat.com/' + key + '?format=iframe&height=' + h + '&width=' + w;
+                el.appendChild(iframe);
+            }, 200);
             return html;
         }
 
@@ -192,14 +195,18 @@
         function attachAvoid(out) { var card = out.querySelector('.avoid-card'); if (!card) return; card.onclick = function() { this.classList.toggle('expanded'); }; }
         function st() { toast.classList.add('show'); setTimeout(function() { toast.classList.remove('show'); }, 2000); }
 
-        function loadStaticAd(id, key, h, w) {
+                function loadStaticAd(id, key, h, w) {
             var el = document.getElementById(id); if (!el) return;
-            var s1 = document.createElement('script');
-            s1.text = 'atOptions={key:"' + key + '",format:"iframe",height:' + h + ',width:' + w + ',params:{}};';
-            el.appendChild(s1);
-            var s2 = document.createElement('script');
-            s2.src = 'https://www.highperformanceformat.com/' + key + '/invoke.js';
-            el.appendChild(s2);
+            el.innerHTML = '';
+            var iframe = document.createElement('iframe');
+            iframe.setAttribute('data-key', key);
+            iframe.style.border = 'none';
+            iframe.style.width = w + 'px';
+            iframe.style.height = h + 'px';
+            iframe.style.maxWidth = '100%';
+            iframe.scrolling = 'no';
+            iframe.src = 'https://www.highperformanceformat.com/' + key + '?format=iframe&height=' + h + '&width=' + w;
+            el.appendChild(iframe);
         }
 
         // TODAY
