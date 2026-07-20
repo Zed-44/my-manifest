@@ -11,7 +11,7 @@
     <meta property="og:title" content="My Manifest — Manifest Your Day">
     <meta property="og:description" content="Your personal manifestation changes every day. Manifest code, lucky color, love energy, and more.">
     <meta property="og:url" content="" id="ogUrl">
-    <meta property="og:image" content="" id="ogImage">
+    <meta property="og:image" content="https://ogcdn.io/v1/image?title=My+Manifest&subtitle=Manifest+Your+Day&backgroundColor=0a1a0f&titleColor=d4af37&subtitleColor=e8e5dc&width=1200&height=630" id="ogImage">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="My Manifest">
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="My Manifest — Manifest Your Day">
     <meta name="twitter:description" content="Your personal manifestation changes every day. Get yours free.">
-    <meta name="twitter:image" content="" id="twitterImage">
+    <meta name="twitter:image" content="https://ogcdn.io/v1/image?title=My+Manifest&subtitle=Manifest+Your+Day&backgroundColor=0a1a0f&titleColor=d4af37&subtitleColor=e8e5dc&width=1200&height=630" id="twitterImage">
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -32,26 +32,35 @@
 
     <!-- Inline OG Tag Generator (runs before page load for Facebook scraper) -->
     <script>
-    (function() {
-        var params = new URLSearchParams(window.location.search);
-        var m = parseInt(params.get('m'));
-        var d = parseInt(params.get('d'));
-        if (m && d && m >= 1 && m <= 12 && d >= 1 && d <= 31) {
-            var code = ((m * 7 + d * 13) % 31) + 1;
-            document.title = "My Manifest — Code " + code;
-            var ogTitle = document.querySelector('meta[property="og:title"]');
-            var ogDesc = document.querySelector('meta[property="og:description"]');
-            var ogUrl = document.querySelector('meta[property="og:url"]');
-            var twitterTitle = document.querySelector('meta[name="twitter:title"]');
-            var twitterDesc = document.querySelector('meta[name="twitter:description"]');
-            if (ogTitle) ogTitle.setAttribute('content', "My Manifest — Manifest Code " + code);
-            if (ogDesc) ogDesc.setAttribute('content', "Your personal manifestation changes every day. Lucky color, love energy, and what to avoid — all from your birth date. Get your free reading.");
-            if (ogUrl) ogUrl.setAttribute('content', window.location.href);
-            if (twitterTitle) twitterTitle.setAttribute('content', "My Manifest — Manifest Code " + code);
-            if (twitterDesc) twitterDesc.setAttribute('content', "Your personal manifestation changes every day. Get your free reading.");
-        }
-    })();
-    </script>
+(function() {
+    var params = new URLSearchParams(window.location.search);
+    var m = parseInt(params.get('m'));
+    var d = parseInt(params.get('d'));
+    if (m && d && m >= 1 && m <= 12 && d >= 1 && d <= 31) {
+        var code = ((m * 7 + d * 13) % 31) + 1;
+        document.title = "My Manifest — Code " + code;
+        
+        // Build OG image URL with the manifest code
+        var imageUrl = "https://ogcdn.io/v1/image?title=Manifest+Code+" + code + "&subtitle=Your+daily+reading+awaits...&backgroundColor=0a1a0f&titleColor=d4af37&subtitleColor=e8e5dc&width=1200&height=630";
+        
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        var ogUrl = document.querySelector('meta[property="og:url"]');
+        var ogImage = document.querySelector('meta[property="og:image"]');
+        var twitterTitle = document.querySelector('meta[name="twitter:title"]');
+        var twitterDesc = document.querySelector('meta[name="twitter:description"]');
+        var twitterImage = document.querySelector('meta[name="twitter:image"]');
+        
+        if (ogTitle) ogTitle.setAttribute('content', "My Manifest — Manifest Code " + code);
+        if (ogDesc) ogDesc.setAttribute('content', "My Manifest Code is " + code + ". Get your daily reading — fortune, lucky color, love energy, and more. Free, changes every day.");
+        if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+        if (ogImage) ogImage.setAttribute('content', imageUrl);
+        if (twitterTitle) twitterTitle.setAttribute('content', "My Manifest — Manifest Code " + code);
+        if (twitterDesc) twitterDesc.setAttribute('content', "My Manifest Code is " + code + ". Get your daily reading free.");
+        if (twitterImage) twitterImage.setAttribute('content', imageUrl);
+    }
+})();
+</script>
 
     <style>
         :root {
